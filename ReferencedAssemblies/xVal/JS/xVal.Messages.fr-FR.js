@@ -1,0 +1,26 @@
+﻿var xVal = xVal || {};
+xVal.Messages = {
+    "Required" : "Champ obligatoire.",
+    "DataType_EmailAddress" : "Veuillez insérer une adresse e-mail valide.",
+    "DataType_Integer" : "Veuillez insérer un nombre entier.",
+    "DataType_Decimal" : "Veuillez insérer un nombre valide.",
+    "DataType_Date" : "Veuillez insérer une date valide.",
+    "DataType_DateTime" : "Veuillez insérer une date et heure.",
+    "DataType_Currency" : "Veuillez insérer une valeur monétaire.",
+    "DataType_CreditCardLuhn" : "Veuillez insérer un nombre de carte de crédit valide.",
+    "Regex" : "Valeur non valide.",
+    "Range_Numeric_Min" : "Veuillez insérer une valeur plus grande ou égale à {0}.",
+    "Range_Numeric_Max" : "Veuillez insérer une valeur plus petite ou égale à {0}.",
+    "Range_Numeric_MinMax" : "Veuillez insérer une valeur entre {0} et {1}.",
+    "Range_String_Min" : "Veuillez insérer un caractère de l'alphabet plus grand que '{0}'.",
+    "Range_String_Max" : "Veuillez insérer un caractère de l'alphabet plus petit que '{0}'.",
+    "Range_String_MinMax" : "Veuillez insérer un caractère de l'alphabet entre '{0}' et '{1}'.",
+    "Range_DateTime_Min" : "Veuillez insérer une date posterieur à {0}.",
+    "Range_DateTime_Max": "Veuillez insérer une date anterieur à {0}.",
+    "Range_DateTime_MinMax": "Veuillez insérer une date entre {0} et {1}.",
+    "StringLength_Min": "Veuillez insérer au moins {0} caractères.",
+    "StringLength_Max": "Veuillez ne pas insérer plus que {0} caractères.",
+    "StringLength_MinMax": "Veuillez insérer entre {0} et {1} caractères.",
+    "Comparison_Equals" : "La valeur doit être égale à {0}.",
+    "Comparison_DoesNotEqual" : "La valeur doit être différente de {0}."
+};

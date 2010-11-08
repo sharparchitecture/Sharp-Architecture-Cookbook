@@ -1,0 +1,17 @@
+obj
+bin
+debug
+_Resharper.*
+_ReSharper.*
+*.csproj.user
+*.resharper.user
+*.ReSharper.user
+*.resharper
+*.ReSharper
+*.suo
+*.cache
+*~
+*.swp
+*.dbproj.user
+*.dbmdl
+error-*.xml

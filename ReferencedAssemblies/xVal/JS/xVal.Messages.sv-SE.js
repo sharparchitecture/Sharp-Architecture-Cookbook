@@ -1,0 +1,26 @@
+var xVal = xVal || {};
+xVal.Messages = {
+    "Required":"Detta värde krävs.",
+    "DataType_EmailAddress" : "Var god ange en giltlig e-post adress.",
+    "DataType_Integer" : "Var god ange ett heltal.",
+    "DataType_Decimal" : "Var god ange ett nummer.",
+    "DataType_Date" : "Var god ange ett giltligt datum.",
+    "DataType_DateTime" : "Var god ange ett datum och tid.",
+    "DataType_Currency" : "Var god ange pengabelopp.",
+    "DataType_CreditCardLuhn" : "Var god ange ett giltligt kreditkortsnummer.",
+    "Regex" : "Detta värde är ogiltigt.",
+    "Range_Numeric_Min" : "Var god ange ange ett värde minst {0}.",
+    "Range_Numeric_Max" : "Var god ange ange ett värde mindre än eller lika med {0}.",
+    "Range_Numeric_MinMax" : "Var god ange ett värde mellan {0} och {1}.",
+    "Range_String_Min" : "Var god ange ett värde som alfabetiskt inte kommer före '{0}'.",
+    "Range_String_Max" : "Var god ange ett värde som alfabetiskt inte kommer efter '{0}'.",
+    "Range_String_MinMax" : "Var god ange ett värde som alfabetiskt kommer mellan '{0}' och '{1}'.",
+    "Range_DateTime_Min" : "Var god ange ett datum tidigare än {0}.",
+    "Range_DateTime_Max": "Var god ange ett datum inte senare än {0}.",
+    "Range_DateTime_MinMax": "Var god ange ett datum mellan {0} och {1}.",
+    "StringLength_Min": "Var god ange minst {0} tecken.",
+    "StringLength_Max": "Var god ange inte mer än {0} tecken.",
+    "StringLength_MinMax": "Var god ange mellan {0} och {1} tecken.",
+    "Comparison_Equals" : "Detta värde måste vara samma som {0}.",
+    "Comparison_DoesNotEqual" : "Detta värde måste skilja sig från {0}."
+};

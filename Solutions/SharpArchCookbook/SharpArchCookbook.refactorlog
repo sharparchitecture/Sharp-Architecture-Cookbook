@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Operations>
+  <Operation Name="Rename Refactor" Key="f3593135-8aa5-472f-a8a5-3c6379d2a7cd" ChangeDateTime="10/24/2009 21:19:07">
+    <Property Name="ElementName" Value="[dbo].[People]" />
+    <Property Name="ElementType" Value="ISql100Table" />
+    <Property Name="ParentElementName" Value="[dbo]" />
+    <Property Name="ParentElementType" Value="ISql90Schema" />
+    <Property Name="NewName" Value="Person" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="3bc0fcdf-6fd8-4cad-a00d-c452d8bbf119" ChangeDateTime="10/24/2009 21:19:23">
+    <Property Name="ElementName" Value="[dbo].[PeopleTags]" />
+    <Property Name="ElementType" Value="ISql100Table" />
+    <Property Name="ParentElementName" Value="[dbo]" />
+    <Property Name="ParentElementType" Value="ISql90Schema" />
+    <Property Name="NewName" Value="PersonTag" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="b455e0d5-905f-4497-b073-27311f9fa942" ChangeDateTime="10/24/2009 21:19:37">
+    <Property Name="ElementName" Value="[dbo].[Tags]" />
+    <Property Name="ElementType" Value="ISql100Table" />
+    <Property Name="ParentElementName" Value="[dbo]" />
+    <Property Name="ParentElementType" Value="ISql90Schema" />
+    <Property Name="NewName" Value="Tag" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="577a2c53-cde3-48ef-8cad-828a3ce5fd8f" ChangeDateTime="10/25/2009 09:57:33">
+    <Property Name="ElementName" Value="[dbo].[TagCategoryAssertion]" />
+    <Property Name="ElementType" Value="ISql100Table" />
+    <Property Name="ParentElementName" Value="[dbo]" />
+    <Property Name="ParentElementType" Value="ISql90Schema" />
+    <Property Name="NewName" Value="Category" />
+  </Operation>
+</Operations>
