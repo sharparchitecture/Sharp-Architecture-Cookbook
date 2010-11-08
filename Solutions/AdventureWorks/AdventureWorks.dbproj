@@ -1,0 +1,2221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Name>AdventureWorks</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.0</ProjectVersion>
+    <ProjectGuid>{67cbc824-a49e-4e9b-a947-360f3dfe65c3}</ProjectGuid>
+    <DSP>Microsoft.Data.Schema.Sql.Sql100DatabaseSchemaProvider</DSP>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <ShowWizard>False</ShowWizard>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <IncludeSchemaNameInFileName>False</IncludeSchemaNameInFileName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchema</DefaultFileStructure>
+    <DeployToDatabaseAddToServerExplorer>True</DeployToDatabaseAddToServerExplorer>
+    <DeployToScript>True</DeployToScript>
+    <CatalogPropertiesFile>Properties\Database.sqlsettings</CatalogPropertiesFile>
+    <LoadSqlClrTypes>True</LoadSqlClrTypes>
+    <RootNamespace>AdventureWorks</RootNamespace>
+    <DefaultSchema>dbo</DefaultSchema>
+    <PreviousProjectVersion>4.0</PreviousProjectVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>.\sql\release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetConnectionString>
+    </TargetConnectionString>
+    <TargetDatabase>
+    </TargetDatabase>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <SuppressWarnings>
+    </SuppressWarnings>
+    <DeploymentConfigFile>Properties\Database.sqldeployment</DeploymentConfigFile>
+    <SqlCommandVariablesFile>Properties\Database.sqlcmdvars</SqlCommandVariablesFile>
+    <DeployToDatabase>False</DeployToDatabase>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>.\sql\debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetConnectionString>
+    </TargetConnectionString>
+    <TargetDatabase>
+    </TargetDatabase>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <SuppressWarnings>
+    </SuppressWarnings>
+    <DeploymentConfigFile>Properties\Database.sqldeployment</DeploymentConfigFile>
+    <SqlCommandVariablesFile>Properties\Database.sqlcmdvars</SqlCommandVariablesFile>
+    <DeployToDatabase>False</DeployToDatabase>
+  </PropertyGroup>
+  <!--Import the settings-->
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\TeamData\Microsoft.Data.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Scripts" />
+    <Folder Include="Scripts\Pre-Deployment" />
+    <Folder Include="Scripts\Post-Deployment" />
+    <Folder Include="Data Generation Plans" />
+    <Folder Include="Schema Comparisons" />
+    <Folder Include="Properties\" />
+    <Folder Include="Schema Objects\" />
+    <Folder Include="Schema Objects\Schemas\" />
+    <Folder Include="Schema Objects\Schemas\dbo\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Defaults\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Functions\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Rules\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Types\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Types\User Defined Data Types\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Types\User Defined Types CLR\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Types\User Defined Table Types\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Types\XML Schema Collections\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Service Broker\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Service Broker\Queues\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Synonyms\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\Constraints\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\Keys\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Views\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Views\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Views\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Views\Statistics\" />
+    <Folder Include="Schema Objects\Database Level Objects\" />
+    <Folder Include="Schema Objects\Database Level Objects\Assemblies\" />
+    <Folder Include="Schema Objects\Database Level Objects\Database Triggers\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Schemas\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Users\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Certificates\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Asymmetric Keys\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Master Keys\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Signatures\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Symmetric Keys\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Database Encryption Keys\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Database Audit Specification\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Roles\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Roles\Application Roles\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Roles\Database Roles\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Broker Priorities\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Contracts\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Event Notifications\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Message Types\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Remote Service Binding\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Routes\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Services\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Full Text Stoplists\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Filegroups\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Files\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Full Text Catalogs\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Partition Functions\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Partition Schemes\" />
+    <Folder Include="Schema Objects\Schemas\Production\" />
+    <Folder Include="Schema Objects\Schemas\Production\Programmability\" />
+    <Folder Include="Schema Objects\Schemas\Production\Programmability\Defaults\" />
+    <Folder Include="Schema Objects\Schemas\Production\Programmability\Functions\" />
+    <Folder Include="Schema Objects\Schemas\Production\Programmability\Rules\" />
+    <Folder Include="Schema Objects\Schemas\Production\Programmability\Stored Procedures\" />
+    <Folder Include="Schema Objects\Schemas\Production\Programmability\Types\" />
+    <Folder Include="Schema Objects\Schemas\Production\Programmability\Types\User Defined Data Types\" />
+    <Folder Include="Schema Objects\Schemas\Production\Programmability\Types\User Defined Types CLR\" />
+    <Folder Include="Schema Objects\Schemas\Production\Programmability\Types\User Defined Table Types\" />
+    <Folder Include="Schema Objects\Schemas\Production\Programmability\Types\XML Schema Collections\" />
+    <Folder Include="Schema Objects\Schemas\Production\Synonyms\" />
+    <Folder Include="Schema Objects\Schemas\Production\Tables\" />
+    <Folder Include="Schema Objects\Schemas\Production\Tables\Constraints\" />
+    <Folder Include="Schema Objects\Schemas\Production\Tables\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\Production\Tables\Keys\" />
+    <Folder Include="Schema Objects\Schemas\Production\Tables\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\Production\Tables\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\Production\Views\" />
+    <Folder Include="Schema Objects\Schemas\Production\Views\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\Production\Views\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\Production\Views\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\Sales\" />
+    <Folder Include="Schema Objects\Schemas\Sales\Programmability\" />
+    <Folder Include="Schema Objects\Schemas\Sales\Programmability\Defaults\" />
+    <Folder Include="Schema Objects\Schemas\Sales\Programmability\Functions\" />
+    <Folder Include="Schema Objects\Schemas\Sales\Programmability\Rules\" />
+    <Folder Include="Schema Objects\Schemas\Sales\Programmability\Stored Procedures\" />
+    <Folder Include="Schema Objects\Schemas\Sales\Programmability\Types\" />
+    <Folder Include="Schema Objects\Schemas\Sales\Programmability\Types\User Defined Data Types\" />
+    <Folder Include="Schema Objects\Schemas\Sales\Programmability\Types\User Defined Types CLR\" />
+    <Folder Include="Schema Objects\Schemas\Sales\Programmability\Types\User Defined Table Types\" />
+    <Folder Include="Schema Objects\Schemas\Sales\Programmability\Types\XML Schema Collections\" />
+    <Folder Include="Schema Objects\Schemas\Sales\Synonyms\" />
+    <Folder Include="Schema Objects\Schemas\Sales\Tables\" />
+    <Folder Include="Schema Objects\Schemas\Sales\Tables\Constraints\" />
+    <Folder Include="Schema Objects\Schemas\Sales\Tables\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\Sales\Tables\Keys\" />
+    <Folder Include="Schema Objects\Schemas\Sales\Tables\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\Sales\Tables\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\Sales\Views\" />
+    <Folder Include="Schema Objects\Schemas\Sales\Views\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\Sales\Views\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\Sales\Views\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\Purchasing\" />
+    <Folder Include="Schema Objects\Schemas\Purchasing\Programmability\" />
+    <Folder Include="Schema Objects\Schemas\Purchasing\Programmability\Defaults\" />
+    <Folder Include="Schema Objects\Schemas\Purchasing\Programmability\Functions\" />
+    <Folder Include="Schema Objects\Schemas\Purchasing\Programmability\Rules\" />
+    <Folder Include="Schema Objects\Schemas\Purchasing\Programmability\Stored Procedures\" />
+    <Folder Include="Schema Objects\Schemas\Purchasing\Programmability\Types\" />
+    <Folder Include="Schema Objects\Schemas\Purchasing\Programmability\Types\User Defined Data Types\" />
+    <Folder Include="Schema Objects\Schemas\Purchasing\Programmability\Types\User Defined Types CLR\" />
+    <Folder Include="Schema Objects\Schemas\Purchasing\Programmability\Types\User Defined Table Types\" />
+    <Folder Include="Schema Objects\Schemas\Purchasing\Programmability\Types\XML Schema Collections\" />
+    <Folder Include="Schema Objects\Schemas\Purchasing\Synonyms\" />
+    <Folder Include="Schema Objects\Schemas\Purchasing\Tables\" />
+    <Folder Include="Schema Objects\Schemas\Purchasing\Tables\Constraints\" />
+    <Folder Include="Schema Objects\Schemas\Purchasing\Tables\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\Purchasing\Tables\Keys\" />
+    <Folder Include="Schema Objects\Schemas\Purchasing\Tables\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\Purchasing\Tables\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\Purchasing\Views\" />
+    <Folder Include="Schema Objects\Schemas\Purchasing\Views\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\Purchasing\Views\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\Purchasing\Views\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\HumanResources\" />
+    <Folder Include="Schema Objects\Schemas\HumanResources\Programmability\" />
+    <Folder Include="Schema Objects\Schemas\HumanResources\Programmability\Defaults\" />
+    <Folder Include="Schema Objects\Schemas\HumanResources\Programmability\Functions\" />
+    <Folder Include="Schema Objects\Schemas\HumanResources\Programmability\Rules\" />
+    <Folder Include="Schema Objects\Schemas\HumanResources\Programmability\Stored Procedures\" />
+    <Folder Include="Schema Objects\Schemas\HumanResources\Programmability\Types\" />
+    <Folder Include="Schema Objects\Schemas\HumanResources\Programmability\Types\User Defined Data Types\" />
+    <Folder Include="Schema Objects\Schemas\HumanResources\Programmability\Types\User Defined Types CLR\" />
+    <Folder Include="Schema Objects\Schemas\HumanResources\Programmability\Types\User Defined Table Types\" />
+    <Folder Include="Schema Objects\Schemas\HumanResources\Programmability\Types\XML Schema Collections\" />
+    <Folder Include="Schema Objects\Schemas\HumanResources\Synonyms\" />
+    <Folder Include="Schema Objects\Schemas\HumanResources\Tables\" />
+    <Folder Include="Schema Objects\Schemas\HumanResources\Tables\Constraints\" />
+    <Folder Include="Schema Objects\Schemas\HumanResources\Tables\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\HumanResources\Tables\Keys\" />
+    <Folder Include="Schema Objects\Schemas\HumanResources\Tables\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\HumanResources\Tables\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\HumanResources\Views\" />
+    <Folder Include="Schema Objects\Schemas\HumanResources\Views\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\HumanResources\Views\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\HumanResources\Views\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\Person\" />
+    <Folder Include="Schema Objects\Schemas\Person\Programmability\" />
+    <Folder Include="Schema Objects\Schemas\Person\Programmability\Defaults\" />
+    <Folder Include="Schema Objects\Schemas\Person\Programmability\Functions\" />
+    <Folder Include="Schema Objects\Schemas\Person\Programmability\Rules\" />
+    <Folder Include="Schema Objects\Schemas\Person\Programmability\Stored Procedures\" />
+    <Folder Include="Schema Objects\Schemas\Person\Programmability\Types\" />
+    <Folder Include="Schema Objects\Schemas\Person\Programmability\Types\User Defined Data Types\" />
+    <Folder Include="Schema Objects\Schemas\Person\Programmability\Types\User Defined Types CLR\" />
+    <Folder Include="Schema Objects\Schemas\Person\Programmability\Types\User Defined Table Types\" />
+    <Folder Include="Schema Objects\Schemas\Person\Programmability\Types\XML Schema Collections\" />
+    <Folder Include="Schema Objects\Schemas\Person\Synonyms\" />
+    <Folder Include="Schema Objects\Schemas\Person\Tables\" />
+    <Folder Include="Schema Objects\Schemas\Person\Tables\Constraints\" />
+    <Folder Include="Schema Objects\Schemas\Person\Tables\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\Person\Tables\Keys\" />
+    <Folder Include="Schema Objects\Schemas\Person\Tables\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\Person\Tables\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\Person\Views\" />
+    <Folder Include="Schema Objects\Schemas\Person\Views\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\Person\Views\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\Person\Views\Statistics\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PropertiesFile Include="Properties\Database.sqlsettings">
+    </PropertiesFile>
+    <PropertiesFile Include="Properties\Database.sqldeployment">
+    </PropertiesFile>
+    <PropertiesFile Include="Properties\Database.sqlcmdvars">
+    </PropertiesFile>
+    <Build Include="Properties\Database.sqlpermissions">
+      <ModelBuilderType>Permissions</ModelBuilderType>
+    </Build>
+    <PreDeploy Include="Scripts\Pre-Deployment\Script.PreDeployment.sql">
+      <SubType>Code</SubType>
+    </PreDeploy>
+    <PostDeploy Include="Scripts\Post-Deployment\Script.PostDeployment.sql">
+      <SubType>Code</SubType>
+    </PostDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <BuildContributorArgument Include="OutDir=$(OutDir)" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\CK_ProductInventory_Shelf.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\CK_ProductInventory_Bin.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\CK_SpecialOffer_EndDate.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\CK_SpecialOffer_DiscountPct.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\CK_SpecialOffer_MinQty.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\CK_SpecialOffer_MaxQty.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\CK_ProductListPriceHistory_ListPrice.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\CK_ProductListPriceHistory_EndDate.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\CK_BillOfMaterials_EndDate.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\CK_BillOfMaterials_ProductAssemblyID.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\CK_BillOfMaterials_BOMLevel.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\CK_BillOfMaterials_PerAssemblyQty.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\CK_TransactionHistory_TransactionType.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\CK_ProductReview_Rating.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\CK_TransactionHistoryArchive_TransactionType.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Constraints\CK_ProductVendor_AverageLeadTime.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Constraints\CK_ProductVendor_StandardPrice.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Constraints\CK_ProductVendor_LastReceiptCost.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Constraints\CK_ProductVendor_MinOrderQty.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Constraints\CK_ProductVendor_MaxOrderQty.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Constraints\CK_ProductVendor_OnOrderQty.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Constraints\CK_Vendor_CreditRating.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\CK_WorkOrder_OrderQty.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\CK_WorkOrder_ScrappedQty.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\CK_WorkOrder_EndDate.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Constraints\CK_PurchaseOrderDetail_ReceivedQty.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Constraints\CK_PurchaseOrderDetail_RejectedQty.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Constraints\CK_PurchaseOrderDetail_UnitPrice.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Constraints\CK_PurchaseOrderDetail_OrderQty.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\CK_WorkOrderRouting_ScheduledEndDate.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\CK_WorkOrderRouting_ActualEndDate.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\CK_WorkOrderRouting_ActualResourceHrs.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\CK_WorkOrderRouting_PlannedCost.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\CK_WorkOrderRouting_ActualCost.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Constraints\CK_PurchaseOrderHeader_Status.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Constraints\CK_PurchaseOrderHeader_ShipDate.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Constraints\CK_PurchaseOrderHeader_SubTotal.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Constraints\CK_PurchaseOrderHeader_TaxAmt.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Constraints\CK_PurchaseOrderHeader_Freight.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\CK_Document_Status.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\CK_SalesOrderDetail_OrderQty.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\CK_SalesOrderDetail_UnitPrice.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\CK_SalesOrderDetail_UnitPriceDiscount.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Constraints\CK_Employee_BirthDate.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Constraints\CK_Employee_MaritalStatus.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Constraints\CK_Employee_HireDate.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Constraints\CK_Employee_Gender.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Constraints\CK_Employee_VacationHours.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Constraints\CK_Employee_SickLeaveHours.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\CK_SalesOrderHeader_DueDate.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\CK_SalesOrderHeader_ShipDate.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\CK_SalesOrderHeader_SubTotal.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\CK_SalesOrderHeader_TaxAmt.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\CK_SalesOrderHeader_Freight.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\CK_SalesOrderHeader_Status.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Constraints\CK_EmployeeDepartmentHistory_EndDate.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Constraints\CK_EmployeePayHistory_PayFrequency.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Constraints\CK_EmployeePayHistory_Rate.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\CK_SalesPerson_SalesQuota.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\CK_SalesPerson_Bonus.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\CK_SalesPerson_SalesYTD.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\CK_SalesPerson_SalesLastYear.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\CK_SalesPerson_CommissionPct.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\CK_Location_Availability.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\CK_Location_CostRate.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\CK_SalesPersonQuotaHistory_SalesQuota.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Constraints\CK_Person_EmailPromotion.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Constraints\CK_Person_PersonType.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\CK_SalesTaxRate_TaxType.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\CK_SalesTerritory_SalesYTD.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\CK_SalesTerritory_SalesLastYear.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\CK_SalesTerritory_CostYTD.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\CK_SalesTerritory_CostLastYear.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\CK_Product_StandardCost.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\CK_Product_ListPrice.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\CK_Product_Weight.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\CK_Product_DaysToManufacture.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\CK_Product_ReorderPoint.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\CK_Product_ProductLine.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\CK_Product_Class.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\CK_Product_Style.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\CK_Product_SellEndDate.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\CK_Product_SafetyStockLevel.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\CK_SalesTerritoryHistory_EndDate.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Constraints\CK_ShipMethod_ShipBase.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Constraints\CK_ShipMethod_ShipRate.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\CK_ProductCostHistory_StandardCost.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\CK_ProductCostHistory_EndDate.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\CK_ShoppingCartItem_Quantity.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_ProductInventory_Quantity.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_ProductInventory_rowguid.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_ProductInventory_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_SpecialOffer_rowguid.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_SpecialOffer_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_SpecialOffer_MinQty.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_SpecialOffer_DiscountPct.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Constraints\DF_Address_rowguid.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Constraints\DF_Address_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_ProductListPriceHistory_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Constraints\DF_AddressType_rowguid.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Constraints\DF_AddressType_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_SpecialOfferProduct_rowguid.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_SpecialOfferProduct_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_ProductModel_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_ProductModel_rowguid.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Constraints\DF_AWBuildVersion_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Constraints\DF_StateProvince_IsOnlyStateProvinceFlag.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Constraints\DF_StateProvince_rowguid.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Constraints\DF_StateProvince_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_ProductModelIllustration_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_BillOfMaterials_StartDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_BillOfMaterials_PerAssemblyQty.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_BillOfMaterials_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_ProductModelProductDescriptionCulture_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_Store_rowguid.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_Store_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_ProductPhoto_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_ProductProductPhoto_Primary.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_ProductProductPhoto_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_TransactionHistory_TransactionDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_TransactionHistory_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_TransactionHistory_ReferenceOrderLineID.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Constraints\DF_BusinessEntity_rowguid.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Constraints\DF_BusinessEntity_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_ProductReview_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_ProductReview_ReviewDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Constraints\DF_BusinessEntityAddress_rowguid.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Constraints\DF_BusinessEntityAddress_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_TransactionHistoryArchive_TransactionDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_TransactionHistoryArchive_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_TransactionHistoryArchive_ReferenceOrderLineID.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_ProductSubcategory_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_ProductSubcategory_rowguid.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Constraints\DF_BusinessEntityContact_rowguid.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Constraints\DF_BusinessEntityContact_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Constraints\DF_ProductVendor_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_UnitMeasure_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Constraints\DF_ContactType_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Constraints\DF_Vendor_PreferredVendorStatus.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Constraints\DF_Vendor_ActiveFlag.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Constraints\DF_Vendor_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_CountryRegionCurrency_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Constraints\DF_CountryRegion_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_CreditCard_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_WorkOrder_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Constraints\DF_PurchaseOrderDetail_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_Culture_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_Currency_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_WorkOrderRouting_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_CurrencyRate_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Constraints\DF_PurchaseOrderHeader_RevisionNumber.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Constraints\DF_PurchaseOrderHeader_Status.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Constraints\DF_PurchaseOrderHeader_OrderDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Constraints\DF_PurchaseOrderHeader_SubTotal.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Constraints\DF_PurchaseOrderHeader_TaxAmt.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Constraints\DF_PurchaseOrderHeader_Freight.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Constraints\DF_PurchaseOrderHeader_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_Customer_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_Customer_rowguid.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Constraints\DF_Department_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_Document_FolderFlag.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_Document_ChangeNumber.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_Document_rowguid.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_Document_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_SalesOrderDetail_UnitPriceDiscount.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_SalesOrderDetail_rowguid.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_SalesOrderDetail_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Constraints\DF_EmailAddress_rowguid.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Constraints\DF_EmailAddress_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Constraints\DF_Employee_SalariedFlag.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Constraints\DF_Employee_VacationHours.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Constraints\DF_Employee_SickLeaveHours.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Constraints\DF_Employee_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Constraints\DF_Employee_CurrentFlag.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Constraints\DF_Employee_rowguid.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_SalesOrderHeader_OnlineOrderFlag.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_SalesOrderHeader_Status.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_SalesOrderHeader_SubTotal.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_SalesOrderHeader_TaxAmt.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_SalesOrderHeader_Freight.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_SalesOrderHeader_rowguid.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_SalesOrderHeader_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_SalesOrderHeader_OrderDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_SalesOrderHeader_RevisionNumber.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Constraints\DF_EmployeeDepartmentHistory_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Constraints\DF_EmployeePayHistory_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_SalesOrderHeaderSalesReason_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_SalesPerson_Bonus.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_SalesPerson_CommissionPct.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_SalesPerson_SalesYTD.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_SalesPerson_SalesLastYear.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_SalesPerson_rowguid.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_SalesPerson_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_Illustration_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Constraints\DF_JobCandidate_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_Location_CostRate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_Location_Availability.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_Location_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Constraints\DF_Password_rowguid.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Constraints\DF_Password_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_SalesPersonQuotaHistory_rowguid.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_SalesPersonQuotaHistory_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Constraints\DF_Person_NameStyle.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Constraints\DF_Person_EmailPromotion.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Constraints\DF_Person_rowguid.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Constraints\DF_Person_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_SalesReason_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_SalesTaxRate_TaxRate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_SalesTaxRate_rowguid.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_SalesTaxRate_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_PersonCreditCard_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Constraints\DF_PersonPhone_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_SalesTerritory_SalesYTD.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_SalesTerritory_SalesLastYear.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_SalesTerritory_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_SalesTerritory_CostYTD.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_SalesTerritory_CostLastYear.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_SalesTerritory_rowguid.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Constraints\DF_PhoneNumberType_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_Product_FinishedGoodsFlag.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_Product_MakeFlag.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_Product_rowguid.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_Product_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_SalesTerritoryHistory_rowguid.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_SalesTerritoryHistory_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_ScrapReason_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Constraints\DF_Shift_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_ProductCategory_rowguid.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_ProductCategory_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Constraints\DF_ShipMethod_ShipRate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Constraints\DF_ShipMethod_rowguid.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Constraints\DF_ShipMethod_ShipBase.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Constraints\DF_ShipMethod_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_ProductCostHistory_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_ProductDescription_rowguid.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_ProductDescription_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_ShoppingCartItem_DateCreated.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_ShoppingCartItem_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Constraints\DF_ShoppingCartItem_Quantity.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Constraints\DF_ProductDocument_ModifiedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Constraints\DF_ErrorLog_ErrorTime.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Database Level Objects\Storage\Files\AdventureWorks2008_Log.sqlfile.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Database Level Objects\Storage\Files\AdventureWorks2008_Data.sqlfile.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Database Level Objects\Storage\Files\FileStreamDocuments.sqlfile.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\FK_ProductInventory_Location_LocationID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\FK_ProductInventory_Product_ProductID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Keys\FK_Address_StateProvince_StateProvinceID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\FK_ProductListPriceHistory_Product_ProductID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\FK_SpecialOfferProduct_Product_ProductID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\FK_SpecialOfferProduct_SpecialOffer_SpecialOfferID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Keys\FK_StateProvince_CountryRegion_CountryRegionCode.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Keys\FK_StateProvince_SalesTerritory_TerritoryID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\FK_ProductModelIllustration_ProductModel_ProductModelID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\FK_ProductModelIllustration_Illustration_IllustrationID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\FK_BillOfMaterials_Product_ProductAssemblyID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\FK_BillOfMaterials_Product_ComponentID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\FK_BillOfMaterials_UnitMeasure_UnitMeasureCode.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\FK_ProductModelProductDescriptionCulture_ProductDescription_ProductDescriptionID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\FK_ProductModelProductDescriptionCulture_Culture_CultureID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\FK_ProductModelProductDescriptionCulture_ProductModel_ProductModelID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\FK_Store_BusinessEntity_BusinessEntityID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\FK_Store_SalesPerson_SalesPersonID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\FK_ProductProductPhoto_Product_ProductID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\FK_ProductProductPhoto_ProductPhoto_ProductPhotoID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\FK_TransactionHistory_Product_ProductID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\FK_ProductReview_Product_ProductID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Keys\FK_BusinessEntityAddress_Address_AddressID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Keys\FK_BusinessEntityAddress_AddressType_AddressTypeID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Keys\FK_BusinessEntityAddress_BusinessEntity_BusinessEntityID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\FK_ProductSubcategory_ProductCategory_ProductCategoryID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Keys\FK_BusinessEntityContact_Person_PersonID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Keys\FK_BusinessEntityContact_ContactType_ContactTypeID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Keys\FK_BusinessEntityContact_BusinessEntity_BusinessEntityID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Keys\FK_ProductVendor_Product_ProductID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Keys\FK_ProductVendor_UnitMeasure_UnitMeasureCode.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Keys\FK_ProductVendor_Vendor_BusinessEntityID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Keys\FK_Vendor_BusinessEntity_BusinessEntityID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\FK_CountryRegionCurrency_CountryRegion_CountryRegionCode.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\FK_CountryRegionCurrency_Currency_CurrencyCode.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\FK_WorkOrder_Product_ProductID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\FK_WorkOrder_ScrapReason_ScrapReasonID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Keys\FK_PurchaseOrderDetail_Product_ProductID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Keys\FK_PurchaseOrderDetail_PurchaseOrderHeader_PurchaseOrderID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\FK_WorkOrderRouting_Location_LocationID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\FK_WorkOrderRouting_WorkOrder_WorkOrderID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\FK_CurrencyRate_Currency_FromCurrencyCode.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\FK_CurrencyRate_Currency_ToCurrencyCode.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Keys\FK_PurchaseOrderHeader_Employee_EmployeeID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Keys\FK_PurchaseOrderHeader_Vendor_VendorID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Keys\FK_PurchaseOrderHeader_ShipMethod_ShipMethodID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\FK_Customer_Person_PersonID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\FK_Customer_Store_StoreID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\FK_Customer_SalesTerritory_TerritoryID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\FK_Document_Employee_Owner.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\FK_SalesOrderDetail_SalesOrderHeader_SalesOrderID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\FK_SalesOrderDetail_SpecialOfferProduct_SpecialOfferIDProductID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Keys\FK_EmailAddress_Person_BusinessEntityID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Keys\FK_Employee_Person_BusinessEntityID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\FK_SalesOrderHeader_Address_BillToAddressID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\FK_SalesOrderHeader_Address_ShipToAddressID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\FK_SalesOrderHeader_CreditCard_CreditCardID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\FK_SalesOrderHeader_CurrencyRate_CurrencyRateID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\FK_SalesOrderHeader_Customer_CustomerID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\FK_SalesOrderHeader_SalesPerson_SalesPersonID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\FK_SalesOrderHeader_ShipMethod_ShipMethodID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\FK_SalesOrderHeader_SalesTerritory_TerritoryID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Keys\FK_EmployeeDepartmentHistory_Department_DepartmentID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Keys\FK_EmployeeDepartmentHistory_Employee_BusinessEntityID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Keys\FK_EmployeeDepartmentHistory_Shift_ShiftID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Keys\FK_EmployeePayHistory_Employee_BusinessEntityID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\FK_SalesOrderHeaderSalesReason_SalesReason_SalesReasonID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\FK_SalesOrderHeaderSalesReason_SalesOrderHeader_SalesOrderID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\FK_SalesPerson_Employee_BusinessEntityID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\FK_SalesPerson_SalesTerritory_TerritoryID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Keys\FK_JobCandidate_Employee_BusinessEntityID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Keys\FK_Password_Person_BusinessEntityID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\FK_SalesPersonQuotaHistory_SalesPerson_BusinessEntityID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Keys\FK_Person_BusinessEntity_BusinessEntityID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\FK_SalesTaxRate_StateProvince_StateProvinceID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\FK_PersonCreditCard_Person_BusinessEntityID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\FK_PersonCreditCard_CreditCard_CreditCardID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Keys\FK_PersonPhone_Person_BusinessEntityID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Keys\FK_PersonPhone_PhoneNumberType_PhoneNumberTypeID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\FK_SalesTerritory_CountryRegion_CountryRegionCode.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\FK_Product_UnitMeasure_SizeUnitMeasureCode.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\FK_Product_UnitMeasure_WeightUnitMeasureCode.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\FK_Product_ProductModel_ProductModelID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\FK_Product_ProductSubcategory_ProductSubcategoryID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\FK_SalesTerritoryHistory_SalesPerson_BusinessEntityID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\FK_SalesTerritoryHistory_SalesTerritory_TerritoryID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\FK_ProductCostHistory_Product_ProductID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\FK_ShoppingCartItem_Product_ProductID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\FK_ProductDocument_Product_ProductID.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\FK_ProductDocument_Document_DocumentNode.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Database Level Objects\Storage\Full Text Catalogs\AW2008FullTextCatalog.fulltext.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Indexes\Full-text Index.fulltextindex.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Indexes\Full-text Index_1.fulltextindex.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Indexes\Full-text Index.fulltextindex.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Database Level Objects\Storage\Filegroups\DocumentFileStreamGroup.filegroup.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Indexes\AK_SpecialOffer_rowguid.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Indexes\AK_Address_rowguid.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Indexes\IX_Address_AddressLine1_AddressLine2_City_StateProvinceID_PostalCode.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Indexes\IX_Address_StateProvinceID.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Indexes\AK_AddressType_rowguid.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Indexes\AK_AddressType_Name.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Indexes\AK_SpecialOfferProduct_rowguid.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Indexes\IX_SpecialOfferProduct_ProductID.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Indexes\AK_ProductModel_Name.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Indexes\AK_ProductModel_rowguid.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Indexes\AK_StateProvince_Name.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Indexes\AK_StateProvince_StateProvinceCode_CountryRegionCode.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Indexes\AK_StateProvince_rowguid.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Indexes\AK_BillOfMaterials_ProductAssemblyID_ComponentID_StartDate.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Indexes\IX_BillOfMaterials_UnitMeasureCode.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Indexes\AK_Store_rowguid.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Indexes\IX_Store_SalesPersonID.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Indexes\IX_TransactionHistory_ProductID.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Indexes\IX_TransactionHistory_ReferenceOrderID_ReferenceOrderLineID.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Indexes\AK_BusinessEntity_rowguid.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Indexes\IX_ProductReview_ProductID_Name.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Indexes\AK_BusinessEntityAddress_rowguid.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Indexes\IX_BusinessEntityAddress_AddressID.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Indexes\IX_BusinessEntityAddress_AddressTypeID.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Indexes\IX_TransactionHistoryArchive_ProductID.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Indexes\IX_TransactionHistoryArchive_ReferenceOrderID_ReferenceOrderLineID.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Indexes\AK_ProductSubcategory_Name.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Indexes\AK_ProductSubcategory_rowguid.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Indexes\AK_BusinessEntityContact_rowguid.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Indexes\IX_BusinessEntityContact_PersonID.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Indexes\IX_BusinessEntityContact_ContactTypeID.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Indexes\IX_ProductVendor_UnitMeasureCode.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Indexes\IX_ProductVendor_BusinessEntityID.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Indexes\AK_UnitMeasure_Name.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Indexes\AK_ContactType_Name.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Indexes\AK_Vendor_AccountNumber.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Indexes\IX_CountryRegionCurrency_CurrencyCode.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Indexes\AK_CountryRegion_Name.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Indexes\AK_CreditCard_CardNumber.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Indexes\IX_WorkOrder_ScrapReasonID.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Indexes\IX_WorkOrder_ProductID.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Indexes\IX_PurchaseOrderDetail_ProductID.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Indexes\AK_Culture_Name.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Indexes\AK_Currency_Name.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Indexes\IX_WorkOrderRouting_ProductID.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Indexes\AK_CurrencyRate_CurrencyRateDate_FromCurrencyCode_ToCurrencyCode.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Indexes\IX_PurchaseOrderHeader_VendorID.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Indexes\IX_PurchaseOrderHeader_EmployeeID.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Indexes\AK_Customer_rowguid.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Indexes\AK_Customer_AccountNumber.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Indexes\IX_Customer_TerritoryID.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Indexes\AK_Department_Name.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Indexes\AK_Document_DocumentLevel_DocumentNode.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Indexes\AK_Document_rowguid.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Indexes\IX_Document_FileName_Revision.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Indexes\AK_SalesOrderDetail_rowguid.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Indexes\IX_SalesOrderDetail_ProductID.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Indexes\IX_EmailAddress_EmailAddress.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Indexes\IX_Employee_OrganizationNode.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Indexes\IX_Employee_OrganizationLevel_OrganizationNode.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Indexes\AK_Employee_LoginID.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Indexes\AK_Employee_NationalIDNumber.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Indexes\AK_Employee_rowguid.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Indexes\AK_SalesOrderHeader_rowguid.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Indexes\AK_SalesOrderHeader_SalesOrderNumber.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Indexes\IX_SalesOrderHeader_CustomerID.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Indexes\IX_SalesOrderHeader_SalesPersonID.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Indexes\IX_EmployeeDepartmentHistory_DepartmentID.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Indexes\IX_EmployeeDepartmentHistory_ShiftID.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Indexes\AK_SalesPerson_rowguid.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Indexes\IX_JobCandidate_BusinessEntityID.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Indexes\AK_Location_Name.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Indexes\AK_SalesPersonQuotaHistory_rowguid.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Indexes\IX_Person_LastName_FirstName_MiddleName.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Indexes\AK_Person_rowguid.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Indexes\AK_SalesTaxRate_StateProvinceID_TaxType.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Indexes\AK_SalesTaxRate_rowguid.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Indexes\IX_PersonPhone_PhoneNumber.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Indexes\AK_SalesTerritory_Name.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Indexes\AK_SalesTerritory_rowguid.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Indexes\AK_Product_ProductNumber.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Indexes\AK_Product_Name.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Indexes\AK_Product_rowguid.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Views\Indexes\IX_vProductAndDescription.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Indexes\AK_SalesTerritoryHistory_rowguid.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Indexes\AK_ScrapReason_Name.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Views\Indexes\IX_vStateProvinceCountryRegion.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Indexes\AK_Shift_Name.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Indexes\AK_Shift_StartTime_EndTime.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Indexes\AK_ProductCategory_Name.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Indexes\AK_ProductCategory_rowguid.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Indexes\AK_ShipMethod_Name.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Indexes\AK_ShipMethod_rowguid.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Indexes\AK_ProductDescription_rowguid.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Indexes\IX_ShoppingCartItem_ShoppingCartID_ProductID.index.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Functions\ufnGetContactInformation.function.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\PK_ProductInventory_ProductID_LocationID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\PK_SpecialOffer_SpecialOfferID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Keys\PK_Address_AddressID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\PK_ProductListPriceHistory_ProductID_StartDate.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Keys\PK_AddressType_AddressTypeID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\PK_SpecialOfferProduct_SpecialOfferID_ProductID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\PK_ProductModel_ProductModelID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_AWBuildVersion_SystemInformationID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Keys\PK_StateProvince_StateProvinceID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\PK_ProductModelIllustration_ProductModelID_IllustrationID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\PK_BillOfMaterials_BillOfMaterialsID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\PK_ProductModelProductDescriptionCulture_ProductModelID_ProductDescriptionID_CultureID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\PK_Store_BusinessEntityID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\PK_ProductPhoto_ProductPhotoID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\PK_ProductProductPhoto_ProductID_ProductPhotoID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\PK_TransactionHistory_TransactionID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Keys\PK_BusinessEntity_BusinessEntityID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\PK_ProductReview_ProductReviewID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Keys\PK_BusinessEntityAddress_BusinessEntityID_AddressID_AddressTypeID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\PK_TransactionHistoryArchive_TransactionID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\PK_ProductSubcategory_ProductSubcategoryID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Keys\PK_BusinessEntityContact_BusinessEntityID_PersonID_ContactTypeID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Keys\PK_ProductVendor_ProductID_BusinessEntityID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\PK_UnitMeasure_UnitMeasureCode.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Keys\PK_ContactType_ContactTypeID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Keys\PK_Vendor_BusinessEntityID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\PK_CountryRegionCurrency_CountryRegionCode_CurrencyCode.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Keys\PK_CountryRegion_CountryRegionCode.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\PK_CreditCard_CreditCardID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\PK_WorkOrder_WorkOrderID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Keys\PK_PurchaseOrderDetail_PurchaseOrderID_PurchaseOrderDetailID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\PK_Culture_CultureID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\PK_Currency_CurrencyCode.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\PK_WorkOrderRouting_WorkOrderID_ProductID_OperationSequence.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\PK_CurrencyRate_CurrencyRateID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Keys\PK_PurchaseOrderHeader_PurchaseOrderID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\PK_Customer_CustomerID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Keys\PK_Department_DepartmentID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\PK_Document_DocumentNode.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\PK_SalesOrderDetail_SalesOrderID_SalesOrderDetailID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Keys\PK_EmailAddress_BusinessEntityID_EmailAddressID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Keys\PK_Employee_BusinessEntityID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\PK_SalesOrderHeader_SalesOrderID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Keys\PK_EmployeeDepartmentHistory_BusinessEntityID_StartDate_DepartmentID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Keys\PK_EmployeePayHistory_BusinessEntityID_RateChangeDate.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\PK_SalesOrderHeaderSalesReason_SalesOrderID_SalesReasonID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\PK_SalesPerson_BusinessEntityID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\PK_Illustration_IllustrationID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Keys\PK_JobCandidate_JobCandidateID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\PK_Location_LocationID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Keys\PK_Password_BusinessEntityID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\PK_SalesPersonQuotaHistory_BusinessEntityID_QuotaDate.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Keys\PK_Person_BusinessEntityID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\PK_SalesReason_SalesReasonID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\PK_SalesTaxRate_SalesTaxRateID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\PK_PersonCreditCard_BusinessEntityID_CreditCardID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Keys\PK_PersonPhone_BusinessEntityID_PhoneNumber_PhoneNumberTypeID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\PK_SalesTerritory_TerritoryID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Keys\PK_PhoneNumberType_PhoneNumberTypeID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\PK_Product_ProductID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\PK_SalesTerritoryHistory_BusinessEntityID_StartDate_TerritoryID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\PK_ScrapReason_ScrapReasonID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Keys\PK_Shift_ShiftID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\PK_ProductCategory_ProductCategoryID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Keys\PK_ShipMethod_ShipMethodID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\PK_ProductCostHistory_ProductID_StartDate.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\PK_ProductDescription_ProductDescriptionID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Keys\PK_ShoppingCartItem_ShoppingCartItemID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_DatabaseLog_DatabaseLogID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Keys\PK_ProductDocument_ProductID_DocumentNode.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_ErrorLog_ErrorLogID.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\uspPrintError.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\uspGetBillOfMaterials.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\uspLogError.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\uspGetEmployeeManagers.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\uspGetManagerEmployees.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\uspGetWhereUsedProductID.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Programmability\Stored Procedures\uspUpdateEmployeeHireInfo.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Programmability\Stored Procedures\uspUpdateEmployeeLogin.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Programmability\Stored Procedures\uspUpdateEmployeePersonalInfo.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\uspSearchCandidateResumes.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Functions\ufnLeadingZeros.function.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Functions\ufnGetAccountingStartDate.function.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Functions\ufnGetAccountingEndDate.function.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Functions\ufnGetProductDealerPrice.function.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Functions\ufnGetProductListPrice.function.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Functions\ufnGetProductStandardCost.function.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Functions\ufnGetStock.function.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Functions\ufnGetDocumentStatusText.function.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Functions\ufnGetPurchaseOrderStatusText.function.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Functions\ufnGetSalesOrderStatusText.function.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Triggers\dEmployee.trigger.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Triggers\iuPerson.trigger.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Triggers\iPurchaseOrderDetail.trigger.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Triggers\uPurchaseOrderDetail.trigger.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Triggers\uPurchaseOrderHeader.trigger.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Triggers\iduSalesOrderDetail.trigger.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Triggers\uSalesOrderHeader.trigger.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Triggers\dVendor.trigger.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Triggers\iWorkOrder.trigger.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Triggers\uWorkOrder.trigger.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Database Level Objects\Database Triggers\ddlDatabaseTriggerLog.ddltrigger.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Types\User Defined Data Types\AccountNumber.uddt.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Types\User Defined Data Types\Flag.uddt.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Types\User Defined Data Types\NameStyle.uddt.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Types\User Defined Data Types\Name.uddt.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Types\User Defined Data Types\OrderNumber.uddt.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Types\User Defined Data Types\Phone.uddt.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Views\vAdditionalContactInfo.view.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Views\vEmployee.view.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Views\vEmployeeDepartment.view.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Views\vEmployeeDepartmentHistory.view.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Views\vIndividualCustomer.view.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Views\vPersonDemographics.view.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Views\vJobCandidate.view.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Views\vJobCandidateEmployment.view.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Views\vJobCandidateEducation.view.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Views\vProductAndDescription.view.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Views\vProductModelCatalogDescription.view.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Views\vProductModelInstructions.view.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Views\vSalesPerson.view.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Views\vSalesPersonSalesByFiscalYears.view.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Views\vStateProvinceCountryRegion.view.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Views\vStoreWithDemographics.view.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Views\vStoreWithContacts.view.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Views\vStoreWithAddresses.view.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Views\vVendorWithContacts.view.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Views\vVendorWithAddresses.view.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\ProductInventory.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\SpecialOffer.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Address.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\ProductListPriceHistory.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\AddressType.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\SpecialOfferProduct.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\ProductModel.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\AWBuildVersion.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\StateProvince.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\ProductModelIllustration.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\BillOfMaterials.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\ProductModelProductDescriptionCulture.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Store.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\ProductPhoto.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\ProductProductPhoto.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\TransactionHistory.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\BusinessEntity.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\ProductReview.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\BusinessEntityAddress.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\TransactionHistoryArchive.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\ProductSubcategory.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\BusinessEntityContact.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\ProductVendor.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\UnitMeasure.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\ContactType.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\Vendor.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\CountryRegionCurrency.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\CountryRegion.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\CreditCard.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\WorkOrder.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\PurchaseOrderDetail.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Culture.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Currency.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\WorkOrderRouting.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\CurrencyRate.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\PurchaseOrderHeader.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Customer.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Department.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Document.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\SalesOrderDetail.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\EmailAddress.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Employee.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\SalesOrderHeader.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\EmployeeDepartmentHistory.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\EmployeePayHistory.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\SalesOrderHeaderSalesReason.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\SalesPerson.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Illustration.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\JobCandidate.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Location.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Password.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\SalesPersonQuotaHistory.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Person.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\SalesReason.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\SalesTaxRate.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\PersonCreditCard.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\PersonPhone.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\SalesTerritory.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\PhoneNumberType.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Product.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\SalesTerritoryHistory.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\ScrapReason.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Tables\Shift.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\ProductCategory.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Purchasing\Tables\ShipMethod.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\ProductCostHistory.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\ProductDescription.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\ShoppingCartItem.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\DatabaseLog.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\ProductDocument.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\ErrorLog.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Database Level Objects\Service Broker\Routes\AutoCreatedLocal.route.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Database Level Objects\Security\Schemas\HumanResources.schema.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Database Level Objects\Security\Schemas\Person.schema.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Database Level Objects\Security\Schemas\Production.schema.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Database Level Objects\Security\Schemas\Purchasing.schema.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Database Level Objects\Security\Schemas\Sales.schema.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Programmability\Types\XML Schema Collections\AdditionalContactInfoSchemaCollection.xmlschema.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\HumanResources\Programmability\Types\XML Schema Collections\HRResumeSchemaCollection.xmlschema.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Programmability\Types\XML Schema Collections\IndividualSurveySchemaCollection.xmlschema.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Programmability\Types\XML Schema Collections\ManuInstructionsSchemaCollection.xmlschema.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Programmability\Types\XML Schema Collections\ProductDescriptionSchemaCollection.xmlschema.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Programmability\Types\XML Schema Collections\StoreSurveySchemaCollection.xmlschema.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Indexes\PXML_ProductModel_CatalogDescription.xmlindex.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Production\Tables\Indexes\PXML_ProductModel_Instructions.xmlindex.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Sales\Tables\Indexes\PXML_Store_Demographics.xmlindex.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Indexes\PXML_Person_AddContact.xmlindex.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Indexes\PXML_Person_Demographics.xmlindex.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Indexes\XMLPATH_Person_Demographics.xmlindex.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Indexes\XMLPROPERTY_Person_Demographics.xmlindex.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\Person\Tables\Indexes\XMLVALUE_Person_Demographics.xmlindex.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\AdventureWorks.extendedproperties.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Database Level Objects\MS_Description.extendedproperty.sql">
+      <SubType>Code</SubType>
+    </Build>
+  </ItemGroup>
+</Project>
