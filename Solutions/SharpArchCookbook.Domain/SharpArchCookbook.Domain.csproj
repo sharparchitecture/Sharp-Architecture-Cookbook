@@ -63,10 +63,11 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SharpArch">
-      <HintPath>..\..\ReferencedAssemblies\SharpArchitecture\SharpArch.dll</HintPath>
+    <Reference Include="SharpArch.Domain">
+      <HintPath>..\..\ReferencedAssemblies\SharpArchitecture\SharpArch.Domain.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -80,7 +81,18 @@
     <Compile Include="..\..\Common\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Address.cs" />
+    <Compile Include="Customer.cs" />
+    <Compile Include="CustomerAddress.cs" />
     <Compile Include="MyEntity1.cs" />
+    <Compile Include="Product.cs" />
+    <Compile Include="ProductCategory.cs" />
+    <Compile Include="ProductDescription.cs" />
+    <Compile Include="ProductModel.cs" />
+    <Compile Include="ProductModeProductionDescription.cs" />
+    <Compile Include="SalesOrderDetail.cs" />
+    <Compile Include="SalesOrderHeader.cs" />
+    <Compile Include="SalesStatus.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

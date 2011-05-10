@@ -107,10 +107,6 @@
       <Project>{C9AAC14B-E695-4508-83B7-ACB8FC5A7284}</Project>
       <Name>SharpArchCookbook.Tasks</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SharpArchCookbook.Web.Controllers\SharpArchCookbook.Web.Controllers.csproj">
-      <Project>{DBCFAF64-DD59-4D14-887B-BB98B8E63540}</Project>
-      <Name>SharpArchCookbook.Web.Controllers</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

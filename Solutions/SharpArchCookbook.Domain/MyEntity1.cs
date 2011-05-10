@@ -1,6 +1,6 @@
 namespace SharpArchCookbook.Domain
 {
-    using SharpArch.Core.DomainModel;
+    using SharpArch.Domain.DomainModel;
 
     public class MyEntity1 : Entity
     {

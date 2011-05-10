@@ -78,8 +78,11 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\ReferencedAssemblies\NHibernate\NHibernate.dll</HintPath>
     </Reference>
-    <Reference Include="SharpArch">
-      <HintPath>..\..\ReferencedAssemblies\SharpArchitecture\SharpArch.dll</HintPath>
+    <Reference Include="SharpArch.Domain">
+      <HintPath>..\..\ReferencedAssemblies\SharpArchitecture\SharpArch.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpArch.NHibernate">
+      <HintPath>..\..\ReferencedAssemblies\SharpArchitecture\SharpArch.NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -102,6 +105,14 @@
     <Compile Include="NHibernateMaps\Conventions\PrimaryKeyConvention.cs" />
     <Compile Include="NHibernateMaps\Conventions\TableNameConvention.cs" />
     <Compile Include="NHibernateMaps\AutoPersistenceModelGenerator.cs" />
+    <Compile Include="NHibernateMaps\CustomerAddressMap.cs" />
+    <Compile Include="NHibernateMaps\CustomerMap.cs" />
+    <Compile Include="NHibernateMaps\ProductCategoryMap.cs" />
+    <Compile Include="NHibernateMaps\ProductMap.cs" />
+    <Compile Include="NHibernateMaps\ProductModelMap.cs" />
+    <Compile Include="NHibernateMaps\ProductModelProductDescriptionMap.cs" />
+    <Compile Include="NHibernateMaps\SalesOrderDetailMap.cs" />
+    <Compile Include="NHibernateMaps\SalesOrderHeaderMap.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SharpArchCookbook.Domain\SharpArchCookbook.Domain.csproj">

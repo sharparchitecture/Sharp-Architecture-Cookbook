@@ -6,7 +6,7 @@ namespace SharpArchCookbook.Infrastructure.NHibernateMaps
     using FluentNHibernate;
     using FluentNHibernate.Automapping;
 
-    using SharpArch.Core.DomainModel;
+    using SharpArch.Domain.DomainModel;
 
     public class AutomappingConfiguration : DefaultAutomappingConfiguration
     {
