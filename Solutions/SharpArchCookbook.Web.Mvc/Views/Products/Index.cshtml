@@ -1,0 +1,7 @@
+@{
+    ViewBag.Title = "Products";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var grid = new WebGrid(Model);
+}
+
+@grid.GetHtml();

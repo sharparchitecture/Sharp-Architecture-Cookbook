@@ -1,16 +1,30 @@
 namespace SharpArchCookbook.Web.Mvc
 {
     using System;
+    using System.Reflection;
+    using System.Web.Mvc;
+    using System.Web.Routing;
+
     using Castle.Windsor;
-    using Castle.Windsor.Configuration.Interpreters;
+
+    // SharpArchCookbook.Web.Mvc.CastleWindsor
+    using CastleWindsor;
+
     using CommonServiceLocator.WindsorAdapter;
 
+    using Controllers;
+    
     using Infrastructure.NHibernateMaps;
-
+    
+    using log4net.Config;
+    
     using Microsoft.Practices.ServiceLocation;
-
+    
     using SharpArch.NHibernate;
     using SharpArch.NHibernate.Web.Mvc;
+    using SharpArch.Web.Mvc.Castle;
+    using SharpArch.Web.Mvc.ModelBinder;
+    
 
     /// <summary>
     /// Represents the MVC Application
@@ -31,6 +45,7 @@ namespace SharpArchCookbook.Web.Mvc
         /// </summary>
         public override void Init()
         {
+            base.Init();
             this.webSessionStorage = new WebSessionStorage(this);
         }
 
@@ -39,18 +54,46 @@ namespace SharpArchCookbook.Web.Mvc
             NHibernateInitializer.Instance().InitializeNHibernateOnce(this.InitialiseNHibernateSessions);
         }
 
-        protected void Application_Start()
+        protected void Application_Error(object sender, EventArgs e) 
         {
-            IWindsorContainer container = InitializeServiceLocator();
+            // Useful for debugging
+            Exception ex = this.Server.GetLastError();
+            var reflectionTypeLoadException = ex as ReflectionTypeLoadException;
         }
 
-        private static IWindsorContainer InitializeServiceLocator() 
+        protected void Application_Start()
         {
-            IWindsorContainer container = new WindsorContainer(new XmlInterpreter());
+            XmlConfigurator.Configure();
+
+            ViewEngines.Engines.Clear();
+
+            ViewEngines.Engines.Add(new RazorViewEngine());
+
+            ModelBinders.Binders.DefaultBinder = new SharpModelBinder();
+
+            ModelValidatorProviders.Providers.Add(new ClientDataTypeModelValidatorProvider());
+
+            this.InitializeServiceLocator();
+
+            AreaRegistration.RegisterAllAreas();
+            RouteRegistrar.RegisterRoutesTo(RouteTable.Routes);
+        }
+
+        /// <summary>
+        /// Instantiate the container and add all Controllers that derive from
+        /// WindsorController to the container.  Also associate the Controller
+        /// with the WindsorContainer ControllerFactory.
+        /// </summary>
+        protected virtual void InitializeServiceLocator() 
+        {
+            IWindsorContainer container = new WindsorContainer();
+
+            ControllerBuilder.Current.SetControllerFactory(new WindsorControllerFactory(container));
+
+            container.RegisterControllers(typeof(HomeController).Assembly);
+            ComponentRegistrar.AddComponentsTo(container);
 
             ServiceLocator.SetLocatorProvider(() => new WindsorServiceLocator(container));
-
-            return container;
         }
 
         private void InitialiseNHibernateSessions()
@@ -61,7 +104,7 @@ namespace SharpArchCookbook.Web.Mvc
                 this.webSessionStorage,
                 new[] { Server.MapPath("~/bin/SharpArchCookbook.Infrastructure.dll") },
                 new AutoPersistenceModelGenerator().Generate(),
-                Server.MapPath("~/Configuration/NHibernate/nhibernate.current_session.config"));
+                Server.MapPath("~/NHibernate.config"));
         }
     }
 }

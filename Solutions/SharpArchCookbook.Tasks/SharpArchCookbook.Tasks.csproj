@@ -63,8 +63,11 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="SharpArch.Domain, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b5f559ae0ac4e006, processorArchitecture=MSIL" />
+    <Reference Include="SharpArch.NHibernate, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -78,11 +81,19 @@
     <Compile Include="..\..\Common\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="CommandHandlers\ChangeCustomerAddressHandler.cs" />
+    <Compile Include="Commands\ChangeCustomerAddressCommand.cs" />
+    <Compile Include="Commands\ChangeCustomerAddressResult.cs" />
+    <Compile Include="ProductTask.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SharpArchCookbook.Domain\SharpArchCookbook.Domain.csproj">
       <Project>{8DEF56CD-601E-443C-9DCE-C4EC54C0B6A6}</Project>
       <Name>SharpArchCookbook.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharpArchCookbook.Infrastructure\SharpArchCookbook.Infrastructure.csproj">
+      <Project>{9544D94B-9B6E-4B61-8A09-88382205BF86}</Project>
+      <Name>SharpArchCookbook.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

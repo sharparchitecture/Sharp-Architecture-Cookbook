@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head id="Head1" runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+    <link href="/Content/Site.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+        google.load("jquery", "1.6.0");
+    </script>
+       
+    <title>@ViewBag.Title</title>    
+</head>
+
+<body>
+    <div class="page">
+        <div id="mainContent">
+            <div class="columnsContainer">
+                <div class="leftColumn">
+                    <p>
+                        
+                    </p>
+                    <h2>SharpCookbook Pages</h2>
+                    <ul>
+                        <li>@(Html.ActionLink<HomeController>(c => c.Index(), "Home"))</li>
+                        <li>@(Html.ActionLink<SharpArchCookbook.Web.Mvc.Controllers.ProductsController>(c => c.Index(null), "Products"))</li>
+                    </ul>
+                </div>
+                <!--/leftColumn-->
+
+                <div class="rightColumn">
+                    @RenderBody()
+                </div><!--/rightColumn-->
+
+                <div class="clear">
+                </div>
+
+            </div><!--/columnsContainer-->
+
+            <div id="sharpArchLogo"></div>
+
+        </div><!--/mainContent-->
+
+    </div><!--/page-->
+</body>
+</html>
