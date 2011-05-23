@@ -8,14 +8,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tasks", "Tasks", "{BDC8840A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{D5E689AA-BE7E-4F5F-AF51-03F71C6C31B2}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{B9465FBB-3DAC-4051-B79A-FEFD17B674D4}"
-	ProjectSection(SolutionItems) = preProject
-		..\Build\Build.cmd = ..\Build\Build.cmd
-		..\Build\Build.proj = ..\Build\Build.proj
-		..\Build\BuildAndPackage.cmd = ..\Build\BuildAndPackage.cmd
-		..\Build\BuildAndTest.cmd = ..\Build\BuildAndTest.cmd
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Specs", "Specs", "{2322D330-1A60-4F79-B553-53DED803A098}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpArchCookbook.Domain", "SharpArchCookbook.Domain\SharpArchCookbook.Domain.csproj", "{8DEF56CD-601E-443C-9DCE-C4EC54C0B6A6}"

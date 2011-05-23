@@ -7,6 +7,6 @@ namespace SharpArchCookbook.Web.Mvc.Controllers.Queries.Products
 
     public interface IProductsListQuery
     {
-        IPagination<ProductViewModel> GetPagedList(int index, int size);
+        IPagination<ProductViewModel> GetPagedList(int page, int size);
     }
 }

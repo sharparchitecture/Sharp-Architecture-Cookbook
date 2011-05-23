@@ -27,7 +27,6 @@ namespace SharpArchCookbook.Web.Mvc.Controllers
                                 {
                                     Products = this.productsListQuery.GetPagedList(page ?? 1, DefaultPageSize)
                                 };
-
             return View(viewModel);
         }
 

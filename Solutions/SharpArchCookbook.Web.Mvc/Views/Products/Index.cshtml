@@ -1,7 +1,22 @@
+@using MvcContrib.UI.Grid;
+@model SharpArchCookbook.Web.Mvc.Controllers.ViewModels.ProductsListViewModel
 @{
     ViewBag.Title = "Products";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    var grid = new WebGrid(Model);
+    Layout = "~/Views/Shared/_Layout.cshtml"; 
 }
 
-@grid.GetHtml();
+@Html.Grid(Model.Products).AutoGenerateColumns()
+
+<div>
+@if(Model.Products.HasPreviousPage) {
+    <text>@(Html.ActionLink<SharpArchCookbook.Web.Mvc.Controllers.ProductsController>(c => c.Index(Model.Products.PageNumber - 1), "Previous"))</text>
+}
+
+@if(Model.Products.HasNextPage) {
+    <text>@(Html.ActionLink<SharpArchCookbook.Web.Mvc.Controllers.ProductsController>(c => c.Index(Model.Products.PageNumber + 1), "Next"))</text>
+}
+</div>
+
+<div>
+Page @Model.Products.PageNumber of @Model.Products.PageSize
+</div>

@@ -1,13 +1,13 @@
-﻿namespace SharpArchCookbook.Web.Mvc.CastleWindsor
+﻿using SharpArch.Web.Mvc.Castle;
+
+namespace SharpArchCookbook.Web.Mvc.CastleWindsor
 {
-    using Castle.Core;
     using Castle.MicroKernel.Registration;
     using Castle.Windsor;
 
     using SharpArch.Domain.PersistenceSupport;
     using SharpArch.NHibernate;
     using SharpArch.NHibernate.Contracts.Repositories;
-    using SharpArch.Web.Mvc.Castle;
 
     public class ComponentRegistrar
     {
@@ -15,11 +15,11 @@
         {
             AddGenericRepositoriesTo(container);
             AddCustomRepositoriesTo(container);
-            AddQueriesTo(container);
-            AddApplicationServicesTo(container);
+            AddQueryObjectsTo(container);
+            AddTasksTo(container);
         }
 
-        private static void AddApplicationServicesTo(IWindsorContainer container)
+        private static void AddTasksTo(IWindsorContainer container)
         {
             container.Register(
                 AllTypes
@@ -65,7 +65,7 @@
                         .Named("sessionFactoryKeyProvider"));
         }
 
-        private static void AddQueriesTo(IWindsorContainer container)
+        private static void AddQueryObjectsTo(IWindsorContainer container)
         {
             container.Register(
                 AllTypes.FromAssemblyNamed("SharpArchCookbook.Web.Mvc")

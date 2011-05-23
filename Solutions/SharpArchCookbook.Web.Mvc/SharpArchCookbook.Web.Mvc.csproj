@@ -89,9 +89,12 @@
     <Reference Include="SharpArch.NHibernate">
       <HintPath>..\..\ReferencedAssemblies\SharpArchitecture\SharpArch.NHibernate.dll</HintPath>
     </Reference>
-    <Reference Include="SharpArch.Web.Mvc, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SharpArch.Web.Mvc">
+      <HintPath>..\..\ReferencedAssemblies\SharpArchitecture\SharpArch.Web.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.Abstractions" />
@@ -122,6 +125,7 @@
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="CastleWindsor\ComponentRegistrar.cs" />
+    <Compile Include="Controllers\Queries\Products\IProductsListQuery.cs" />
     <Compile Include="Controllers\ViewModels\AddressChangeFormViewModel.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -130,12 +134,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\Queries\Products\IProductsListQuery.cs" />
     <Compile Include="Controllers\Queries\Products\ProductsListQuery.cs" />
     <Compile Include="Controllers\ViewModels\ProductsListViewModel.cs" />
     <Compile Include="Controllers\ViewModels\ProductViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\img\sharp_arch.jpg" />
+    <Content Include="Content\img\sharp_arch_small.gif" />
+    <Content Include="Content\js\jquery-1.6.1.min.js" />
+    <Content Include="Content\js\modernizr-1.7.min.js" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -163,9 +170,7 @@
   <ItemGroup>
     <Content Include="NHibernate.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Content\img\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>

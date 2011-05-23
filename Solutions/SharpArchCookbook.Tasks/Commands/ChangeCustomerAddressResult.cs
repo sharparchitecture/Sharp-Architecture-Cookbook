@@ -1,6 +1,6 @@
 ﻿namespace SharpArchCookbook.Tasks.Commands
 {
-    using SharpArch.Domain.Commands
+    using SharpArch.Domain.Commands;
 
     public class ChangeCustomerAddressResult : CommandResult
     {

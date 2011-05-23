@@ -10,7 +10,7 @@ namespace SharpArchCookbook.Web.Mvc.Controllers.Queries.Products
 
     public class ProductsListQuery : NHibernateQuery, IProductsListQuery
     {
-        public IPagination<ProductViewModel> GetPagedList(int index, int size)
+        public IPagination<ProductViewModel> GetPagedList(int page, int size)
         {
             var query = Session.QueryOver<Product>().OrderBy(x => x.Name).Asc;
 
@@ -39,7 +39,7 @@ namespace SharpArchCookbook.Web.Mvc.Controllers.Queries.Products
                 .Take(size)
                 .Future<ProductViewModel>();
 
-            return new CustomPagination<ProductViewModel>(viewModels, index, size, totalCount.Value);
+            return new CustomPagination<ProductViewModel>(viewModels, page, size, totalCount.Value);
         }
     }
 }

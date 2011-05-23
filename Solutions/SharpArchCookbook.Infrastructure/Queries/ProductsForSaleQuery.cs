@@ -15,9 +15,7 @@
         public override IList<Product> ExecuteQuery()
         {
             return (from product in Session.Query<Product>()
-                    where product.DiscontinuedDate.Date > DateTime.Now.Date
-                    where product.SellEndDate.Date > DateTime.Now.Date
-                    where product.SellStartDate.Date < DateTime.Now.Date
+                    where product.SellEndDate.Date > DateTime.Parse("5/30/2003")
                     select product).ToList();
         }
     }
