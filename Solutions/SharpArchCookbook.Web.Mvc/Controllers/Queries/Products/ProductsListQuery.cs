@@ -17,7 +17,7 @@ namespace SharpArchCookbook.Web.Mvc.Controllers.Queries.Products
             var count = query.ToRowCountQuery();
             var totalCount = count.FutureValue<int>();
 
-            var firstResult = (index - 1) * size;
+            var firstResult = (page - 1) * size;
 
             ProductViewModel viewModel = null;
             ProductCategory categoryAlias = null;

@@ -5,7 +5,8 @@
     using System.Linq;
     
     using Domain;
-    using Domain.Queries.Contracts.Queries;
+    using Domain.Contracts.Queries;
+
     using NHibernate.Linq;
     using SharpArch.NHibernate;
 

@@ -1,0 +1,33 @@
+@using SharpArchCookbook.Domain;
+@using MvcContrib.UI.Grid;
+
+@model ProductModel
+
+@{
+    ViewBag.Title = "ProductModel Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml"; 
+}
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <fieldset>
+        <ul>
+            <li>
+                @Html.LabelFor(Model => Model.Id)
+                <div>@Html.DisplayFor(Model => Model.Id)</div>
+            </li>
+            <li>
+                @Html.LabelFor(Model => Model.Name)
+                <div>@Html.TextBoxFor(Model => Model.Name)</div>
+                @Html.ValidationMessageFor(Model => Model.Name)
+            </li>
+            <li>
+                @Html.LabelFor(Model => Model.ModifiedDate)
+                <div>@Html.DisplayFor(Model => Model.ModifiedDate)</div>
+            </li>
+            <li>
+                @Html.SubmitButton("btnSave", "Save")
+            </li>
+        </ul>
+    </fieldset>
+}

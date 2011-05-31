@@ -1,10 +1,10 @@
-﻿namespace SharpArchCookbook.Tasks.Contracts
+﻿namespace SharpArchCookbook.Tasks
 {
     using System.Collections.Generic;
     
     using Domain;
+    using Domain.Contracts.Queries;
     using Domain.Contracts.Tasks;
-    using Domain.Queries.Contracts.Queries;
     using SharpArch.NHibernate.Contracts.Repositories;
 
     public class ProductTask : IProductTask

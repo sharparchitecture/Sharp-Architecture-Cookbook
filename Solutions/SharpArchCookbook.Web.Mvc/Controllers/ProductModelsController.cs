@@ -2,15 +2,15 @@
 {
     using System.Web.Mvc;
     using Domain;
+    using Domain.Contracts.Tasks;
     using MvcContrib;
     using SharpArch.NHibernate.Web.Mvc;
-    using Tasks;
 
-    public class ProductModelController : Controller
+    public class ProductModelsController : Controller
     {
-        private readonly ProductModelTasks productModelTasks;
+        private readonly IProductModelTasks productModelTasks;
 
-        public ProductModelController(ProductModelTasks productModelTasks)
+        public ProductModelsController(IProductModelTasks productModelTasks)
         {
             this.productModelTasks = productModelTasks;
         }
@@ -21,23 +21,24 @@
         }
 
         [HttpGet]
-        public ActionResult Edit(int id)
+        public ActionResult CreateOrUpdate(int id)
         {
             return View(this.productModelTasks.Get(id));
         }
 
-        [HttpGet]
-        public ActionResult CreateOrUpdate()
-        {
-            var newProductModel = new ProductModel();
-            return View(newProductModel);
-        }
+        //[HttpGet]
+        //public ActionResult CreateOrUpdate()
+        //{
+        //    var newProductModel = new ProductModel();
+        //    return View(newProductModel);
+        //}
         
         [Transaction]
         [ValidateAntiForgeryToken]
         [HttpPost]
         public ActionResult CreateOrUpdate(ProductModel productModel)
         {
+            var t = productModel.ValidationResults();
             if (productModel.IsValid())
             {
                 this.productModelTasks.CreateOrUpdate(productModel);

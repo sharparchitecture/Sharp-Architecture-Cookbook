@@ -25,7 +25,7 @@ namespace SharpArchCookbook.Web.Mvc.CastleWindsor
                 AllTypes
                     .FromAssemblyNamed("SharpArchCookbook.Tasks")
                     .Pick()
-                    .WithService.FirstInterface());
+                    .WithService.FirstNonGenericCoreInterface("SharpArchCookbook.Domain"));
         }
 
         private static void AddCustomRepositoriesTo(IWindsorContainer container) 

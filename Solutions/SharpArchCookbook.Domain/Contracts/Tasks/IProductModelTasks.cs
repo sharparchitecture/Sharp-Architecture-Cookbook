@@ -1,12 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace SharpArchCookbook.Domain.Queries.Contracts.Tasks
+﻿namespace SharpArchCookbook.Domain.Contracts.Tasks
 {
+    using System.Collections.Generic;
+
     public interface IProductModelTasks
     {
-        IList<ProductModel> GetAll();
+        List<ProductModel> GetAll();
 
         ProductModel Get(int id);
 

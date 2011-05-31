@@ -1,4 +1,4 @@
-﻿namespace SharpArchCookbook.Domain.Queries.Contracts.Queries
+﻿namespace SharpArchCookbook.Domain.Contracts.Queries
 {
     using SharpArch.Domain.PersistenceSupport;
 

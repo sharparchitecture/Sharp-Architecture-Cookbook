@@ -1,26 +1,29 @@
 ﻿namespace SharpArchCookbook.Tasks
 {
+    using System;
     using System.Collections.Generic;
+    using System.Linq;
     
     using Domain;
-    using Domain.Queries.Contracts.Tasks;
+    using Domain.Contracts.Tasks;
 
-    using SharpArch.NHibernate;
+    using SharpArch.NHibernate.Contracts.Repositories;
     using SharpArch.NHibernate.Web.Mvc;
-
+    
     public class ProductModelTasks : IProductModelTasks
     {
-        private readonly NHibernateRepository<ProductModel> productModelRepository;
+        private readonly INHibernateRepository<ProductModel> productModelRepository;
 
-        public ProductModelTasks(NHibernateRepository<ProductModel> productModelRepository)
+        public ProductModelTasks(INHibernateRepository<ProductModel> productModelRepository)
         {
             this.productModelRepository = productModelRepository;
         }
 
         [Transaction]
-        public IList<ProductModel> GetAll()
+        public List<ProductModel> GetAll()
         {
-            return this.productModelRepository.GetAll();
+            var allProductModels = this.productModelRepository.GetAll().ToList();
+            return allProductModels;
         }
 
         [Transaction]
@@ -32,6 +35,7 @@
         [Transaction]
         public ProductModel CreateOrUpdate(ProductModel productModel)
         {
+            productModel.ModifiedDate = DateTime.Now;
             this.productModelRepository.SaveOrUpdate(productModel);
             return productModel;
         }

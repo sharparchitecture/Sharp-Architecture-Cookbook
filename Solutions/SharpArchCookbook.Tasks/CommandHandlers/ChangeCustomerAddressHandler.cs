@@ -1,9 +1,10 @@
 ﻿namespace SharpArchCookbook.Tasks.CommandHandlers
 {
+    using Commands;
+    using Domain;
+
     using SharpArch.Domain.Commands;
     using SharpArch.NHibernate.Contracts.Repositories;
-    using SharpArchCookbook.Domain;
-    using SharpArchCookbook.Tasks.Commands;
 
     public class ChangeCustomerAddressHandler : ICommandHandler<ChangeCustomerAddressCommand>
     {

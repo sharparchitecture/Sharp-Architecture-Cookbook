@@ -6,8 +6,8 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{6F92992D-8D75-4BA8-87C3-146581235054}</ProjectGuid>
-    <ProjectTypeGuids>{F85E285D-A4E0-4152-9332-AB1D724D3325};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <ProjectGuid>{39613BA0-1206-4A4B-A16A-C1F2A22D1267}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SharpArchCookbook.Web.Mvc</RootNamespace>
@@ -89,7 +89,8 @@
     <Reference Include="SharpArch.NHibernate">
       <HintPath>..\..\ReferencedAssemblies\SharpArchitecture\SharpArch.NHibernate.dll</HintPath>
     </Reference>
-    <Reference Include="SharpArch.Web.Mvc">
+    <Reference Include="SharpArch.Web.Mvc, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\ReferencedAssemblies\SharpArchitecture\SharpArch.Web.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -125,7 +126,7 @@
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="CastleWindsor\ComponentRegistrar.cs" />
-    <Compile Include="Controllers\ProductModelController.cs" />
+    <Compile Include="Controllers\ProductModelsController.cs" />
     <Compile Include="Controllers\Queries\Products\IProductsListQuery.cs" />
     <Compile Include="Controllers\ViewModels\AddressChangeFormViewModel.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
@@ -146,9 +147,13 @@
     <Content Include="Content\js\modernizr-1.7.min.js" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
+    <None Include="Views\Customer\AddressChange.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <None Include="Views\Products\Index.cshtml" />
     <None Include="Views\Products\ForSale.cshtml" />
+    <None Include="Views\ProductModels\Index.cshtml" />
+    <None Include="Views\ProductModels\Edit.cshtml" />
+    <None Include="Views\ProductModels\CreateOrUpdate.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
