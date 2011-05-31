@@ -65,7 +65,7 @@ namespace SharpArchCookbook.Web.Mvc.CastleWindsor
                         .Named("sessionFactoryKeyProvider"));
         }
 
-        private static void AddQueryObjectsTo(IWindsorContainer container)
+        private static void AddQueryObjectsTo(IWindsorContainer container) 
         {
             container.Register(
                 AllTypes.FromAssemblyNamed("SharpArchCookbook.Web.Mvc")

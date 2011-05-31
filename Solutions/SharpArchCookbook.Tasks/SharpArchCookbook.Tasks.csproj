@@ -76,6 +76,7 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -88,6 +89,7 @@
     <Compile Include="CommandHandlers\ChangeCustomerAddressHandler.cs" />
     <Compile Include="Commands\ChangeCustomerAddressCommand.cs" />
     <Compile Include="Commands\ChangeCustomerAddressResult.cs" />
+    <Compile Include="ProductModelTasks.cs" />
     <Compile Include="ProductTask.cs" />
   </ItemGroup>
   <ItemGroup>

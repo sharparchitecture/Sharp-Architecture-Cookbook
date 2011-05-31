@@ -9,8 +9,6 @@
     {
         public virtual string Name { get; set; }
 
-        public virtual SqlXml Description { get; set; }
-
         public virtual DateTime ModifiedDate { get; set; }
     }
 }

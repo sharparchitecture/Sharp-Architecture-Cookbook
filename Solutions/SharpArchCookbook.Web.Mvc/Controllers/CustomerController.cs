@@ -1,4 +1,6 @@
-﻿namespace SharpArchCookbook.Web.Mvc.Controllers
+﻿using MvcContrib;
+
+namespace SharpArchCookbook.Web.Mvc.Controllers
 {
     using System.Web.Mvc;
     using SharpArch.Domain.Commands;
@@ -42,11 +44,10 @@
 
             if (results.Success)
             {
-                return RedirectToAction("Index");
+                return this.RedirectToAction(x => x.Index());
             }
 
             return View(viewModel);
         }
-
     }
 }

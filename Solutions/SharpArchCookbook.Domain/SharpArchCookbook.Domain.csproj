@@ -94,6 +94,7 @@
     <Compile Include="ProductModel.cs" />
     <Compile Include="ProductModeProductionDescription.cs" />
     <Compile Include="Queries\Contracts\Queries\IProductsForSaleQuery.cs" />
+    <Compile Include="Queries\Contracts\Tasks\IProductModelTasks.cs" />
     <Compile Include="Queries\Contracts\Tasks\IProductTask.cs" />
     <Compile Include="SalesOrderDetail.cs" />
     <Compile Include="SalesOrderHeader.cs" />
