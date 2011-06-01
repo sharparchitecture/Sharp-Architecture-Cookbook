@@ -13,9 +13,9 @@
 
         public virtual Product Product { get; set; }
 
-        public virtual SqlMoney UnitPrice { get; set; }
+        // public virtual SqlMoney UnitPrice { get; set; }
 
-        public virtual SqlMoney LineTotal { get; set; }
+        // public virtual SqlMoney LineTotal { get; set; }
 
         public virtual DateTime ModifiedDate { get; set; }
     }

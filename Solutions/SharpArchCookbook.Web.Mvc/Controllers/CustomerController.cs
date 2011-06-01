@@ -1,44 +1,55 @@
-﻿using MvcContrib;
-
-namespace SharpArchCookbook.Web.Mvc.Controllers
+﻿namespace SharpArchCookbook.Web.Mvc.Controllers
 {
+    using System;
+    using System.Linq;
     using System.Web.Mvc;
-    using SharpArch.Domain.Commands;
-    using SharpArchCookbook.Tasks.Commands;
 
+    using Domain;
+    
+    using MvcContrib;
+    
+    using SharpArch.Domain.Commands;
+    using SharpArch.NHibernate.Contracts.Repositories;
+    using Tasks.Commands;
     using ViewModels;
+    
 
     public class CustomerController : Controller
     {
         private readonly ICommandProcessor commandProcessor;
 
-        public CustomerController(ICommandProcessor commandProcessor)
+        private readonly INHibernateRepository<Address> customerAddressRepository;
+
+        public CustomerController(ICommandProcessor commandProcessor, INHibernateRepository<Address> customerAddressRepository)
         {
             this.commandProcessor = commandProcessor;
+            this.customerAddressRepository = customerAddressRepository;
         }
 
         public ActionResult Index()
         {
-            return View();
+            var tenLittleCustomers = this.customerAddressRepository.GetAll().Take(10).ToList();
+            return View(tenLittleCustomers);
         }
 
         [HttpGet]
         public ActionResult AddressChange(int addressId)
         {
-            var viewModel = new AddressChangeFormViewModel(addressId);
+            var viewModel = this.customerAddressRepository.Get(addressId);
             return View(viewModel);
         }
 
         [HttpPost]
-        public ActionResult AddressChange(AddressChangeFormViewModel viewModel)
+        public ActionResult AddressChange(Address viewModel)
         {
             var command = new ChangeCustomerAddressCommand(
-                                                           viewModel.PreviousAddressId,
+                                                           viewModel.Id,
                                                            viewModel.AddressLine1,
                                                            viewModel.AddressLine2,
                                                            viewModel.City,
                                                            viewModel.StateProvince,
-                                                           viewModel.PostalCode);
+                                                           viewModel.PostalCode,
+                                                           viewModel.CountryRegion);
 
             var results = this.commandProcessor.Process(command);
 

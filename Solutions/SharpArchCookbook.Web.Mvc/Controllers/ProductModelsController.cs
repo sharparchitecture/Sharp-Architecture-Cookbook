@@ -1,4 +1,7 @@
-﻿namespace SharpArchCookbook.Web.Mvc.Controllers
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+
+namespace SharpArchCookbook.Web.Mvc.Controllers
 {
     using System.Web.Mvc;
     using Domain;
@@ -25,21 +28,13 @@
         {
             return View(this.productModelTasks.Get(id));
         }
-
-        //[HttpGet]
-        //public ActionResult CreateOrUpdate()
-        //{
-        //    var newProductModel = new ProductModel();
-        //    return View(newProductModel);
-        //}
-        
+      
         [Transaction]
         [ValidateAntiForgeryToken]
         [HttpPost]
         public ActionResult CreateOrUpdate(ProductModel productModel)
         {
-            var t = productModel.ValidationResults();
-            if (productModel.IsValid())
+            if (ModelState.IsValid && productModel.IsValid())
             {
                 this.productModelTasks.CreateOrUpdate(productModel);
                 return this.RedirectToAction(x => x.Index());

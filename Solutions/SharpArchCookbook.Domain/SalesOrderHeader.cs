@@ -31,13 +31,13 @@
 
         public virtual string ShipMethod { get; set; }
 
-        public virtual SqlMoney SubTotal { get; set; }
+        // public virtual SqlMoney SubTotal { get; set; }
 
-        public virtual SqlMoney TaxAmount { get; set; }
+        // public virtual SqlMoney TaxAmount { get; set; }
 
-        public virtual SqlMoney Freight { get; set; }
+        // public virtual SqlMoney Freight { get; set; }
 
-        public virtual SqlMoney TotalDue { get; set; }
+        // public virtual SqlMoney TotalDue { get; set; }
 
         public virtual DateTime ModifiedDate { get; set; }
     }

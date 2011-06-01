@@ -7,24 +7,26 @@
     public class ChangeCustomerAddressCommand : CommandBase
     {
         public ChangeCustomerAddressCommand(
-                                            int customerAddressId, 
+                                            int id, 
                                             string addressLine1, 
                                             string addressLine2, 
                                             string city,
                                             string stateProvince,
-                                            string postalCode)
+                                            string postalCode,
+                                            string countryRegion)
         {
-            this.CustomerAddressId = customerAddressId;
+            this.Id = id;
             this.AddressLine1 = addressLine1;
             this.AddressLine2 = addressLine2;
             this.City = city;
             this.StateProvince = stateProvince;
             this.PostalCode = postalCode;
             this.ModifiedDate = DateTime.Now;
+            this.CountryRegion = countryRegion;
         }
 
         [Required]
-        public int CustomerAddressId { get; set; }
+        public int Id { get; set; }
 
         [Required]
         public string AddressLine1 { get; set; }
@@ -42,6 +44,9 @@
 
         [Required]
         public DateTime ModifiedDate { get; set; }
+
+        [Required]
+        public string CountryRegion { get; set; }
 
     }
 }

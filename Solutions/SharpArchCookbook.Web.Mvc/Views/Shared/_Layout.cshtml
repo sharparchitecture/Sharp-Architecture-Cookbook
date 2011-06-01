@@ -24,9 +24,10 @@
                     <h2>SharpCookbook Pages</h2>
                     <ul>
                         <li>@(Html.ActionLink<HomeController>(c => c.Index(), "Home"))</li>
-                        <li>@(Html.ActionLink<SharpArchCookbook.Web.Mvc.Controllers.ProductsController>(c => c.Index(null), "Products"))</li>
-                        <li>@(Html.ActionLink<SharpArchCookbook.Web.Mvc.Controllers.ProductsController>(c => c.ForSale(), "Products For Sale"))</li>
-                        <li>@(Html.ActionLink<SharpArchCookbook.Web.Mvc.Controllers.ProductModelsController>(c => c.Index(), "ProductModels"))</li>
+                        <li>@(Html.ActionLink<CustomerController>(c => c.Index(), "Customers"))</li>
+                        <li>@(Html.ActionLink<ProductsController>(c => c.Index(null), "Products"))</li>
+                        <li>@(Html.ActionLink<ProductsController>(c => c.ForSale(), "Products For Sale"))</li>
+                        <li>@(Html.ActionLink<ProductModelsController>(c => c.Index(), "ProductModels"))</li>
                     </ul>
                 </div>
                 <!--/leftColumn-->

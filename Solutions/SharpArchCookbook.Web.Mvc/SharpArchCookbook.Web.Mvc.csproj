@@ -149,10 +149,10 @@
     <Content Include="Global.asax" />
     <None Include="Views\Customer\AddressChange.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
     <None Include="Views\Products\Index.cshtml" />
     <None Include="Views\Products\ForSale.cshtml" />
     <None Include="Views\ProductModels\Index.cshtml" />
-    <None Include="Views\ProductModels\Edit.cshtml" />
     <None Include="Views\ProductModels\CreateOrUpdate.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

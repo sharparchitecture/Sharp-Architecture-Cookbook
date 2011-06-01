@@ -1,6 +1,7 @@
 ﻿namespace SharpArchCookbook.Infrastructure.NHibernateMaps
 {
     using Domain;
+
     using FluentNHibernate.Automapping;
     using FluentNHibernate.Automapping.Alterations;
 

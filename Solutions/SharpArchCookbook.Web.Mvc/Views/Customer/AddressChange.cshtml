@@ -1,1 +1,54 @@
-@model SharpArchCookbook.Web.Mvc.Controllers.ViewModels.AddressChangeFormViewModel;
+@using SharpArchCookbook.Domain;
+@using MvcContrib.UI.Grid;
+
+@model Address
+
+@{
+    ViewBag.Title = "Address Change";
+    Layout = "~/Views/Shared/_Layout.cshtml"; 
+}
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <fieldset>
+        <ul>
+            <li>
+                @Html.LabelFor(Model => Model.Id)
+                <div>@Html.DisplayFor(Model => Model.Id)</div>
+            </li>
+            <li>
+                @Html.LabelFor(Model => Model.AddressLine1)
+                <div>@Html.TextBoxFor(Model => Model.AddressLine1)</div>
+                @Html.ValidationMessageFor(Model => Model.AddressLine1)
+            </li>
+            <li>
+                @Html.LabelFor(Model => Model.AddressLine2)
+                <div>@Html.TextBoxFor(Model => Model.AddressLine2)</div>
+                @Html.ValidationMessageFor(Model => Model.AddressLine2)
+            </li>
+            <li>
+                @Html.LabelFor(Model => Model.City)
+                <div>@Html.TextBoxFor(Model => Model.City)</div>
+                @Html.ValidationMessageFor(Model => Model.City)
+            </li>
+            <li>
+                @Html.LabelFor(Model => Model.StateProvince)
+                <div>@Html.TextBoxFor(Model => Model.StateProvince)</div>
+                @Html.ValidationMessageFor(Model => Model.StateProvince)
+            </li>
+            <li>
+                @Html.LabelFor(Model => Model.PostalCode)
+                <div>@Html.TextBoxFor(Model => Model.PostalCode)</div>
+                @Html.ValidationMessageFor(Model => Model.PostalCode)
+            </li>
+            <li>
+                @Html.LabelFor(Model => Model.CountryRegion)
+                <div>@Html.TextBoxFor(Model => Model.CountryRegion)</div>
+                @Html.ValidationMessageFor(Model => Model.CountryRegion)
+            </li>
+            <li>
+                @Html.SubmitButton("btnSave", "Save")
+            </li>
+        </ul>
+    </fieldset>
+}

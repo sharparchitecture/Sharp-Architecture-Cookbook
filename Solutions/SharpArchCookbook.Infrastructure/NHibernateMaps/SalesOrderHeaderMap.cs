@@ -1,15 +1,16 @@
 ﻿namespace SharpArchCookbook.Infrastructure.NHibernateMaps
 {
-    using FluentNHibernate.Mapping;
-    using SharpArchCookbook.Domain;
+    using Domain;
+    using FluentNHibernate.Automapping;
+    using FluentNHibernate.Automapping.Alterations;
 
-    public class SalesOrderHeaderMap : ClassMap<SalesOrderHeader>
+    public class SalesOrderHeaderMap : IAutoMappingOverride<SalesOrderHeader>
     {
-        public SalesOrderHeaderMap() 
+        public void Override(AutoMapping<SalesOrderHeader> mapping) 
         {
-            Table("SalesLT.SalesOrderHeader");
+            mapping.Table("SalesLT.SalesOrderHeader");
 
-            Id(x => x.Id, "SalesOrderID");
+            mapping.Id(x => x.Id, "SalesOrderID");
         }
     }
 }

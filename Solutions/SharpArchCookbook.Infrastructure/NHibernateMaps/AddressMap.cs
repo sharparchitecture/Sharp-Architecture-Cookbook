@@ -1,16 +1,17 @@
-﻿namespace SharpCookbook.Infrastructure.NHibernateMaps
+﻿namespace SharpArchCookbook.Infrastructure.NHibernateMaps
 {
     using Domain;
 
-    using FluentNHibernate.Mapping;
+    using FluentNHibernate.Automapping;
+    using FluentNHibernate.Automapping.Alterations;
 
-    public class AddressMap : ClassMap<Address>
+    public class AddressMap : IAutoMappingOverride<Address>
     {
-        public AddressMap() 
+        public void Override(AutoMapping<Address> mapping)
         {
-            Table("SalesLT.Address");
+            mapping.Table("SalesLT.Address");
 
-            Id(x => x.Id, "AddressID");
+            mapping.Id(x => x.Id, "AddressID");
         }
     }
 }

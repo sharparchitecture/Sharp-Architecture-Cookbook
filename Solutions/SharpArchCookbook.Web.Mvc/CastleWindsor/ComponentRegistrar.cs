@@ -17,6 +17,7 @@ namespace SharpArchCookbook.Web.Mvc.CastleWindsor
             AddCustomRepositoriesTo(container);
             AddQueryObjectsTo(container);
             AddTasksTo(container);
+            AddCommandsTo(container);
         }
 
         private static void AddTasksTo(IWindsorContainer container)
@@ -63,12 +64,26 @@ namespace SharpArchCookbook.Web.Mvc.CastleWindsor
                     Component.For(typeof(ISessionFactoryKeyProvider))
                         .ImplementedBy(typeof(DefaultSessionFactoryKeyProvider))
                         .Named("sessionFactoryKeyProvider"));
+
+            container.Register(
+                    Component.For(typeof(SharpArch.Domain.Commands.ICommandProcessor))
+                        .ImplementedBy(typeof(SharpArch.Domain.Commands.CommandProcessor))
+                        .Named("commandProcessor"));
+                
         }
 
         private static void AddQueryObjectsTo(IWindsorContainer container) 
         {
             container.Register(
                 AllTypes.FromAssemblyNamed("SharpArchCookbook.Web.Mvc")
+                    .Pick()
+                    .WithService.FirstInterface());
+        }
+
+        private static void AddCommandsTo(IWindsorContainer container)
+        {
+            container.Register(
+                AllTypes.FromAssemblyNamed("SharpArchCookbook.Tasks")
                     .Pick()
                     .WithService.FirstInterface());
         }

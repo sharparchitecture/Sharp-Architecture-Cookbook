@@ -15,6 +15,8 @@
 
         public virtual string PostalCode { get; set; }
 
+        public virtual string CountryRegion { get; set; }
+
         public virtual DateTime ModifiedDate { get; set; }
     }
 }

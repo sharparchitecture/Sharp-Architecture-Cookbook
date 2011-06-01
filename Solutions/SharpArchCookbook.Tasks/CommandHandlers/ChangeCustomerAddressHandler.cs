@@ -5,19 +5,20 @@
 
     using SharpArch.Domain.Commands;
     using SharpArch.NHibernate.Contracts.Repositories;
+    using System;
 
     public class ChangeCustomerAddressHandler : ICommandHandler<ChangeCustomerAddressCommand>
     {
-        private readonly INHibernateRepository<CustomerAddress> customerAddressRepository;
+        private readonly INHibernateRepository<Address> addressRepository;
 
-        public ChangeCustomerAddressHandler(INHibernateRepository<CustomerAddress> customerAddressRepository)
+        public ChangeCustomerAddressHandler(INHibernateRepository<Address> addressRepository)
         {
-            this.customerAddressRepository = customerAddressRepository;
+            this.addressRepository = addressRepository;
         }
 
         public ICommandResult Handle(ChangeCustomerAddressCommand command)
         {
-            var customerAddress = this.customerAddressRepository.Get(command.CustomerAddressId);
+            var address = this.addressRepository.Get(command.Id);
             var newAddress = new Address
                                  {
                                      AddressLine1 = command.AddressLine1,
@@ -25,11 +26,12 @@
                                      City = command.City,
                                      StateProvince = command.StateProvince,
                                      PostalCode = command.PostalCode,
-                                     ModifiedDate = command.ModifiedDate
+                                     ModifiedDate = command.ModifiedDate,
+                                     CountryRegion = command.CountryRegion
                                  };
 
-            customerAddress.Address = newAddress;
-            this.customerAddressRepository.SaveOrUpdate(customerAddress);
+            address = newAddress;
+            this.addressRepository.SaveOrUpdate(address);
 
             return new ChangeCustomerAddressResult(true);
         }

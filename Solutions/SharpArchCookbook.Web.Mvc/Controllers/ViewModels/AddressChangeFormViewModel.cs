@@ -3,7 +3,7 @@
     using System;
     using FluentNHibernate.Data;
 
-    public class AddressChangeFormViewModel : Entity
+    public class AddressChangeFormViewModel
     {
         public AddressChangeFormViewModel(int addressId)
         {

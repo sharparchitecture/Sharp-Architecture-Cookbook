@@ -1,16 +1,17 @@
 ﻿namespace SharpArchCookbook.Infrastructure.NHibernateMaps
 {
-    using FluentNHibernate.Mapping;
+    using Domain;
 
-    using SharpArchCookbook.Domain;
+    using FluentNHibernate.Automapping;
+    using FluentNHibernate.Automapping.Alterations;
 
-    public class CustomerMap : ClassMap<Customer>
+    public class CustomerMap : IAutoMappingOverride<Customer>
     {
-        public CustomerMap()
+        public void Override(AutoMapping<Customer> mapping)
         {
-            Table("SalesLT.Customer");
+            mapping.Table("SalesLT.Customer");
 
-            Id(x => x.Id, "CustomerID");
+            mapping.Id(x => x.Id, "CustomerID");
         }
     }
 }

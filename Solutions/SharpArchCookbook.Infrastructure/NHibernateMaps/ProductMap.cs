@@ -1,9 +1,9 @@
 ﻿namespace SharpArchCookbook.Infrastructure.NHibernateMaps
 {
+    using Domain;
+
     using FluentNHibernate.Automapping;
     using FluentNHibernate.Automapping.Alterations;
-
-    using SharpArchCookbook.Domain;
 
     public class ProductMap : IAutoMappingOverride<Product>
     {
