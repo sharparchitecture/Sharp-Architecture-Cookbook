@@ -7,6 +7,7 @@ namespace SharpArchCookbook.Web.Mvc.Controllers
     using Domain.Contracts.Tasks;
     using Queries.Products;
     using ViewModels;
+    using System.Linq;
 
     public class ProductsController : Controller
     {
@@ -35,6 +36,5 @@ namespace SharpArchCookbook.Web.Mvc.Controllers
             var viewModel = this.productTasks.GetProductsForSale();
             return View(viewModel);
         }
-
     }
 }

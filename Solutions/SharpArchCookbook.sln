@@ -20,8 +20,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSpecTests.SharpArchCookboo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpArchCookbook.Web.Mvc", "SharpArchCookbook.Web.Mvc\SharpArchCookbook.Web.Mvc.csproj", "{39613BA0-1206-4A4B-A16A-C1F2A22D1267}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpArchCookbook.Tests", "SharpArchCookbook.Tests\SharpArchCookbook.Tests.csproj", "{CC4A233E-BE8A-47CC-A87C-8352BFD557B7}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,10 +46,6 @@ Global
 		{39613BA0-1206-4A4B-A16A-C1F2A22D1267}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39613BA0-1206-4A4B-A16A-C1F2A22D1267}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39613BA0-1206-4A4B-A16A-C1F2A22D1267}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CC4A233E-BE8A-47CC-A87C-8352BFD557B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CC4A233E-BE8A-47CC-A87C-8352BFD557B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CC4A233E-BE8A-47CC-A87C-8352BFD557B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CC4A233E-BE8A-47CC-A87C-8352BFD557B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,6 +56,5 @@ Global
 		{C9AAC14B-E695-4508-83B7-ACB8FC5A7284} = {BDC8840A-C964-4EFB-8778-9BC01F516491}
 		{39613BA0-1206-4A4B-A16A-C1F2A22D1267} = {D5E689AA-BE7E-4F5F-AF51-03F71C6C31B2}
 		{F63E0957-B60B-47A3-96BB-76DC243D0C8A} = {2322D330-1A60-4F79-B553-53DED803A098}
-		{CC4A233E-BE8A-47CC-A87C-8352BFD557B7} = {2322D330-1A60-4F79-B553-53DED803A098}
 	EndGlobalSection
 EndGlobal

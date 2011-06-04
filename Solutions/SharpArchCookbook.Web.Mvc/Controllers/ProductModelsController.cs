@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-
-namespace SharpArchCookbook.Web.Mvc.Controllers
+﻿namespace SharpArchCookbook.Web.Mvc.Controllers
 {
     using System.Web.Mvc;
     using Domain;
