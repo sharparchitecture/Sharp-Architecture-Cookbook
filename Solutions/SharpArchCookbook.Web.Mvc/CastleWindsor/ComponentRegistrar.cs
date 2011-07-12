@@ -53,12 +53,14 @@ namespace SharpArchCookbook.Web.Mvc.CastleWindsor
             container.Register(
                 Component.For(typeof(INHibernateRepository<>))
                     .ImplementedBy(typeof(NHibernateRepository<>))
-                    .Named("nhibernateRepositoryType"));
+                    .Named("nhibernateRepositoryType")
+                    .Forward(typeof(IRepository<>)));
 
             container.Register(
                 Component.For(typeof(INHibernateRepositoryWithTypedId<,>))
                     .ImplementedBy(typeof(NHibernateRepositoryWithTypedId<,>))
-                    .Named("nhibernateRepositoryWithTypedId"));
+                    .Named("nhibernateRepositoryWithTypedId")
+                    .Forward(typeof(IRepositoryWithTypedId<,>)));
 
             container.Register(
                     Component.For(typeof(ISessionFactoryKeyProvider))

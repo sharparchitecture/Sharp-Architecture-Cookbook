@@ -86,11 +86,6 @@
     <Compile Include="..\..\Common\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="CommandHandlers\ChangeCustomerAddressHandler.cs" />
-    <Compile Include="Commands\ChangeCustomerAddressCommand.cs" />
-    <Compile Include="Commands\ChangeCustomerAddressResult.cs" />
-    <Compile Include="ProductModelTasks.cs" />
-    <Compile Include="ProductTask.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SharpArchCookbook.Domain\SharpArchCookbook.Domain.csproj">
@@ -118,6 +113,10 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CommandHandlers\" />
+    <Folder Include="Commands\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

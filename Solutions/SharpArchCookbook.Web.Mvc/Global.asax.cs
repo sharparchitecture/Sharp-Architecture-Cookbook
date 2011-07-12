@@ -1,4 +1,4 @@
-namespace SharpArchCookbook.Web.Mvc
+﻿namespace SharpArchCookbook.Web.Mvc
 {
     using System;
     using System.Reflection;

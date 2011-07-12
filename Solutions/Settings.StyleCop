@@ -1,4 +1,4 @@
-<StyleCopSettings Version="4.3">
+﻿<StyleCopSettings Version="4.3">
   <Analyzers>
     <Analyzer AnalyzerId="Microsoft.StyleCop.CSharp.DocumentationRules">
       <Rules>

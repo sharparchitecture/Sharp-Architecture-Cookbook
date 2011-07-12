@@ -63,9 +63,6 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MvcContrib">
-      <HintPath>..\..\Packages\MvcContrib.Mvc3-ci.3.0.68.0\lib\MvcContrib.dll</HintPath>
-    </Reference>
     <Reference Include="SharpArch.Domain">
       <HintPath>..\..\ReferencedAssemblies\SharpArchitecture\SharpArch.Domain.dll</HintPath>
     </Reference>
@@ -84,21 +81,7 @@
     <Compile Include="..\..\Common\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="Address.cs" />
-    <Compile Include="Customer.cs" />
-    <Compile Include="CustomerAddress.cs" />
     <Compile Include="MyEntity1.cs" />
-    <Compile Include="Product.cs" />
-    <Compile Include="ProductCategory.cs" />
-    <Compile Include="ProductDescription.cs" />
-    <Compile Include="ProductModel.cs" />
-    <Compile Include="ProductModeProductionDescription.cs" />
-    <Compile Include="Contracts\Queries\IProductsForSaleQuery.cs" />
-    <Compile Include="Contracts\Tasks\IProductModelTasks.cs" />
-    <Compile Include="Contracts\Tasks\IProductTask.cs" />
-    <Compile Include="SalesOrderDetail.cs" />
-    <Compile Include="SalesOrderHeader.cs" />
-    <Compile Include="SalesStatus.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -116,6 +99,10 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Contracts\Queries\" />
+    <Folder Include="Contracts\Tasks\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

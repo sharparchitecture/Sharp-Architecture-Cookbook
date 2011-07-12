@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head id="Head1" runat="server">
@@ -21,13 +21,9 @@
                     <p>
                         <img src="../../Content/img/sharp_arch.jpg" />
                     </p>
-                    <h2>SharpCookbook Pages</h2>
+                    <h2>SharpArchCookbook Pages</h2>
                     <ul>
                         <li>@(Html.ActionLink<HomeController>(c => c.Index(), "Home"))</li>
-                        <li>@(Html.ActionLink<CustomerController>(c => c.Index(), "Customers"))</li>
-                        <li>@(Html.ActionLink<ProductsController>(c => c.Index(null), "Products"))</li>
-                        <li>@(Html.ActionLink<ProductsController>(c => c.ForSale(), "Products For Sale"))</li>
-                        <li>@(Html.ActionLink<ProductModelsController>(c => c.Index(), "ProductModels"))</li>
                     </ul>
                 </div>
                 <!--/leftColumn-->

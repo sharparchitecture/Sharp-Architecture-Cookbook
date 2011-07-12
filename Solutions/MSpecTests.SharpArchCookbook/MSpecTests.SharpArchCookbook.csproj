@@ -75,17 +75,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\ReferencedAssemblies\Machine.Specifications\Machine.Specifications.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="MvcContrib, Version=3.0.68.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Packages\MvcContrib.Mvc3-ci.3.0.68.0\lib\MvcContrib.dll</HintPath>
-    </Reference>
-    <Reference Include="Rhino.Mocks">
-      <HintPath>..\..\ReferencedAssemblies\RhinoMocks\Rhino.Mocks.dll</HintPath>
-    </Reference>
-    <Reference Include="SharpArch.Domain, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\ReferencedAssemblies\SharpArchitecture\SharpArch.Domain.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -105,10 +94,6 @@
     <Compile Include="..\..\Common\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="Tasks\ProductModelTasksSpecs.cs" />
-    <Compile Include="Tasks\ProductTasksSpecs.cs" />
-    <Compile Include="Web.Mvc.Controllers\ProductsControllerSpecs.cs" />
-    <Compile Include="Web.Mvc.Controllers\ProductModelsController.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SharpArchCookbook.Domain\SharpArchCookbook.Domain.csproj">
@@ -118,10 +103,6 @@
     <ProjectReference Include="..\SharpArchCookbook.Tasks\SharpArchCookbook.Tasks.csproj">
       <Project>{C9AAC14B-E695-4508-83B7-ACB8FC5A7284}</Project>
       <Name>SharpArchCookbook.Tasks</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SharpArchCookbook.Web.Mvc\SharpArchCookbook.Web.Mvc.csproj">
-      <Project>{39613BA0-1206-4A4B-A16A-C1F2A22D1267}</Project>
-      <Name>SharpArchCookbook.Web.Mvc</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -141,7 +122,6 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
