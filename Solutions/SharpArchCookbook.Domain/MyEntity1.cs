@@ -1,4 +1,4 @@
-﻿namespace SharpArchCookbook.Domain
+namespace SharpArchCookbook.Domain
 {
     using SharpArch.Domain.DomainModel;
 

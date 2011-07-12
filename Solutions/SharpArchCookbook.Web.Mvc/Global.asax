@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="SharpArchCookbook.Web.Mvc.MvcApplication" Language="C#" %>
+<%@ Application Codebehind="Global.asax.cs" Inherits="SharpArchCookbook.Web.Mvc.MvcApplication" Language="C#" %>

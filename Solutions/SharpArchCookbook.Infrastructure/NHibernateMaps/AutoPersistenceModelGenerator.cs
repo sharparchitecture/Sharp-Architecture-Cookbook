@@ -1,4 +1,4 @@
-﻿namespace SharpArchCookbook.Infrastructure.NHibernateMaps
+namespace SharpArchCookbook.Infrastructure.NHibernateMaps
 {
     #region Using Directives
 

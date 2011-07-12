@@ -1,0 +1,14 @@
+@using MvcContrib.UI.Grid;
+@using SharpArchCookbook.Domain;
+
+@model IList<Product>
+@{
+    ViewBag.Title = "Products For Sale";
+    Layout = "~/Views/Shared/_Layout.cshtml"; 
+}
+
+@Html.Grid(Model.Take(25)).Columns(column => {
+    column.For(product => product.Id);
+    column.For(product => product.Name);
+    column.For(product => product.SellEndDate.ToShortDateString()).Named("Sell End Date");
+    })

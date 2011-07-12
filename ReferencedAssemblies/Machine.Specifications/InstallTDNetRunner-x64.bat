@@ -1,4 +1,4 @@
-﻿@echo off & if not "%ECHO%"=="" echo %ECHO%
+@echo off & if not "%ECHO%"=="" echo %ECHO%
 
 setlocal
 set LOCALDIR=%~dp0
