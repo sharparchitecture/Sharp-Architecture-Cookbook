@@ -14,9 +14,9 @@ namespace SharpArchCookbook.Web.Mvc.Controllers
         private const int DefaultPageSize = 50;
 
         private readonly IProductsListQuery productsListQuery;
-        private readonly IProductTask productTasks;
+        private readonly IProductTasks productTasks;
 
-        public ProductsController(IProductsListQuery productsListQuery, IProductTask productTasks)
+        public ProductsController(IProductsListQuery productsListQuery, IProductTasks productTasks)
         {
             this.productsListQuery = productsListQuery;
             this.productTasks = productTasks;

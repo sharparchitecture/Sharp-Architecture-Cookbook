@@ -1,13 +1,13 @@
-﻿using SharpArch.Web.Mvc.Castle;
-
-namespace SharpArchCookbook.Web.Mvc.CastleWindsor
+﻿namespace SharpArchCookbook.Web.Mvc.CastleWindsor
 {
     using Castle.MicroKernel.Registration;
     using Castle.Windsor;
 
+    using SharpArch.Domain.Commands;
     using SharpArch.Domain.PersistenceSupport;
     using SharpArch.NHibernate;
     using SharpArch.NHibernate.Contracts.Repositories;
+    using SharpArch.Web.Mvc.Castle;
 
     public class ComponentRegistrar
     {
@@ -17,7 +17,7 @@ namespace SharpArchCookbook.Web.Mvc.CastleWindsor
             AddCustomRepositoriesTo(container);
             AddQueryObjectsTo(container);
             AddTasksTo(container);
-            AddCommandsTo(container);
+            AddCommandHandlersTo(container);
         }
 
         private static void AddTasksTo(IWindsorContainer container)
@@ -25,7 +25,7 @@ namespace SharpArchCookbook.Web.Mvc.CastleWindsor
             container.Register(
                 AllTypes
                     .FromAssemblyNamed("SharpArchCookbook.Tasks")
-                    .Pick()
+                    .Pick().If(t => t.Name.EndsWith("Tasks"))
                     .WithService.FirstNonGenericCoreInterface("SharpArchCookbook.Domain"));
         }
 
@@ -34,7 +34,7 @@ namespace SharpArchCookbook.Web.Mvc.CastleWindsor
             container.Register(
                 AllTypes
                     .FromAssemblyNamed("SharpArchCookbook.Infrastructure")
-                    .Pick()
+                    .BasedOn(typeof(IRepositoryWithTypedId<,>))
                     .WithService.FirstNonGenericCoreInterface("SharpArchCookbook.Domain"));
         }
 
@@ -78,13 +78,18 @@ namespace SharpArchCookbook.Web.Mvc.CastleWindsor
                 AllTypes.FromAssemblyNamed("SharpArchCookbook.Web.Mvc")
                     .BasedOn<NHibernateQuery>()
                     .WithService.FirstInterface());
+
+            container.Register(
+                AllTypes.FromAssemblyNamed("SharpArchCookbook.Infrastructure")
+                    .BasedOn(typeof(NHibernateQuery<>))
+                    .WithService.DefaultInterface());
         }
 
-        private static void AddCommandsTo(IWindsorContainer container)
+        private static void AddCommandHandlersTo(IWindsorContainer container)
         {
             container.Register(
                 AllTypes.FromAssemblyNamed("SharpArchCookbook.Tasks")
-                    .Pick()
+                    .BasedOn(typeof(ICommandHandler<>))
                     .WithService.FirstInterface());
         }
     }

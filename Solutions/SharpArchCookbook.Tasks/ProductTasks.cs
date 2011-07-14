@@ -7,12 +7,12 @@
     using Domain.Contracts.Tasks;
     using SharpArch.NHibernate.Contracts.Repositories;
 
-    public class ProductTask : IProductTask
+    public class ProductTasks : IProductTasks
     {
         private readonly INHibernateRepository<Product> productRepository;
         private readonly IProductsForSaleQuery productsForSaleQuery;
 
-        public ProductTask(INHibernateRepository<Product> productRepository, IProductsForSaleQuery productsForSaleQuery)
+        public ProductTasks(INHibernateRepository<Product> productRepository, IProductsForSaleQuery productsForSaleQuery)
         {
             this.productRepository = productRepository;
             this.productsForSaleQuery = productsForSaleQuery;

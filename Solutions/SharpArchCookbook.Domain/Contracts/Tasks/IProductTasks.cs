@@ -3,7 +3,7 @@
     using System.Collections.Generic;
     using Domain;
 
-    public interface IProductTask
+    public interface IProductTasks
     {
         IList<Product> GetProductsForSale();
     }
