@@ -76,7 +76,7 @@ namespace SharpArchCookbook.Web.Mvc.CastleWindsor
         {
             container.Register(
                 AllTypes.FromAssemblyNamed("SharpArchCookbook.Web.Mvc")
-                    .Pick()
+                    .BasedOn<NHibernateQuery>()
                     .WithService.FirstInterface());
         }
 
