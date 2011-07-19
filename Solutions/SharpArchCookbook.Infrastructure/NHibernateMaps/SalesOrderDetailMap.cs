@@ -10,7 +10,7 @@ namespace SharpArchCookbook.Infrastructure.NHibernateMaps
     {
         public void Override(AutoMapping<SalesOrderDetail> mapping) 
         {
-            mapping.Table("SalesLT.SalesOrderDetail");
+            mapping.Table("`SalesLT.SalesOrderDetail`");
 
             mapping.Id(x => x.Id, "SalesOrderDetailID");
         }

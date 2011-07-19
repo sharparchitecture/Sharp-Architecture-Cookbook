@@ -23,7 +23,7 @@ namespace SharpArchCookbook.Infrastructure.NHibernateMaps
     {
         public AutoPersistenceModel Generate()
         {
-            var mappings = AutoMap.AssemblyOf<MyEntity1>(new AutomappingConfiguration());
+            var mappings = AutoMap.AssemblyOf<Product>(new AutomappingConfiguration());
             mappings.IgnoreBase<Entity>();
             mappings.IgnoreBase(typeof(EntityWithTypedId<>));
             mappings.Conventions.Setup(GetConventions());
