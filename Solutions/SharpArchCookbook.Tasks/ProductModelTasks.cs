@@ -19,20 +19,17 @@
             this.productModelRepository = productModelRepository;
         }
 
-        [Transaction]
         public List<ProductModel> GetAll()
         {
             var allProductModels = this.productModelRepository.GetAll().ToList();
             return allProductModels;
         }
 
-        [Transaction]
         public ProductModel Get(int id)
         {
             return this.productModelRepository.Get(id);
         }
 
-        [Transaction]
         public ProductModel CreateOrUpdate(ProductModel productModel)
         {
             productModel.ModifiedDate = DateTime.Now;
@@ -40,7 +37,6 @@
             return productModel;
         }
 
-        [Transaction]
         public void Delete(int id)
         {
             var productModel = this.productModelRepository.Get(id);

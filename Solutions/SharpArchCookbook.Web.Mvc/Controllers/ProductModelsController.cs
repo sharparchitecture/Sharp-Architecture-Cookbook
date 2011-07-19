@@ -15,11 +15,13 @@
             this.productModelTasks = productModelTasks;
         }
 
+        [Transaction]
         public ActionResult Index()
         {
             return View(this.productModelTasks.GetAll());
         }
 
+        [Transaction]
         [HttpGet]
         public ActionResult CreateOrUpdate(int id)
         {
