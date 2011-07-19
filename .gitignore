@@ -15,3 +15,6 @@ _ReSharper.*
 *.dbproj.user
 *.dbmdl
 error-*.xml
+
+*.dotCover
+*mm_cache.bin
