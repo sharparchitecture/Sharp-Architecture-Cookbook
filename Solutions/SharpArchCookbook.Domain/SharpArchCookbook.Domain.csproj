@@ -87,7 +87,6 @@
     <Compile Include="Address.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="CustomerAddress.cs" />
-    <Compile Include="MyEntity1.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="ProductCategory.cs" />
     <Compile Include="ProductDescription.cs" />
