@@ -12,3 +12,5 @@
     extraCols.For(x => (Html.ActionLink<ProductModelsController>(a => a.CreateOrUpdate(x.Id), "Edit")))
                             .Named("Edit");
 })
+
+@(Html.ActionLink<ProductModelsController>(a => a.CreateOrUpdate(0), "Add"))
