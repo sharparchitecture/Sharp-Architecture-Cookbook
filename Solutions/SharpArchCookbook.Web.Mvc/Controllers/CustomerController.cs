@@ -51,12 +51,7 @@
                                                            viewModel.PostalCode,
                                                            viewModel.CountryRegion);
 
-            var results = this.commandProcessor.Process(command);
-
-            if (results.Success)
-            {
-                return this.RedirectToAction(x => x.Index());
-            }
+            this.commandProcessor.Process(command);
 
             return View(viewModel);
         }

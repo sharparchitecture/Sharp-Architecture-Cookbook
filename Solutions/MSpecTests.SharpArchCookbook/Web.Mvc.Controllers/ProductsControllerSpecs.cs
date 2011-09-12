@@ -18,7 +18,6 @@ namespace MSpecTests.SharpArchCookbook.Web.Mvc.Controllers
 {
     using System.Web.Mvc;
 
-    using global::SharpArchCookbook.Domain.Contracts.Tasks;
     using global::SharpArchCookbook.Web.Mvc.Controllers;
     using global::SharpArchCookbook.Web.Mvc.Controllers.Queries.Products;
 
@@ -29,12 +28,12 @@ namespace MSpecTests.SharpArchCookbook.Web.Mvc.Controllers
 
     public abstract class specification_for_products_controller : Specification<ProductsController>
     {
-        protected static IProductTasks product_tasks;
         protected static IProductsListQuery products_list_query;
+        protected static IProductsForSaleQuery products_for_sale_query;
 
         Establish context = () =>
         {
-            product_tasks = DependencyOf<IProductTasks>();
+            products_for_sale_query = DependencyOf<IProductsForSaleQuery>();
             products_list_query = DependencyOf<IProductsListQuery>();
         };
     }
@@ -64,10 +63,10 @@ namespace MSpecTests.SharpArchCookbook.Web.Mvc.Controllers
         static ActionResult result;
         static IList<Product> products_List;
 
-        Establish context = () => product_tasks.Stub(p => p.GetProductsForSale()).Return(products_List);
+        Establish context = () => products_for_sale_query.Stub(p => p.GetProductsForSale()).Return(products_List);
 
         Because of = () => result = subject.ForSale();
 
-        It should_get_products_from_product_tasks = () => product_tasks.AssertWasCalled(p => p.GetProductsForSale());
+        It should_get_products_from_product_tasks = () => products_for_sale_query.AssertWasCalled(p => p.GetProductsForSale());
     }
 }

@@ -4,22 +4,21 @@ namespace SharpArchCookbook.Web.Mvc.Controllers
 {
     using System.Web.Mvc;
 
-    using Domain.Contracts.Tasks;
     using Queries.Products;
     using ViewModels;
-    using System.Linq;
 
     public class ProductsController : Controller
     {
         private const int DefaultPageSize = 50;
 
         private readonly IProductsListQuery productsListQuery;
-        private readonly IProductTasks productTasks;
 
-        public ProductsController(IProductsListQuery productsListQuery, IProductTasks productTasks)
+        private readonly IProductsForSaleQuery productsForSaleQuery;
+
+        public ProductsController(IProductsListQuery productsListQuery, IProductsForSaleQuery productsForSaleQuery)
         {
             this.productsListQuery = productsListQuery;
-            this.productTasks = productTasks;
+            this.productsForSaleQuery = productsForSaleQuery;
         }
 
         public ActionResult Index(int? page)
@@ -33,7 +32,7 @@ namespace SharpArchCookbook.Web.Mvc.Controllers
 
         public ActionResult ForSale() 
         {
-            var viewModel = this.productTasks.GetProductsForSale();
+            var viewModel = this.productsForSaleQuery.GetProductsForSale();
             return View(viewModel);
         }
     }

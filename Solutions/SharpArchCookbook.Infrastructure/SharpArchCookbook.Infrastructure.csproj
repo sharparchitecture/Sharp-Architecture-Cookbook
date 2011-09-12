@@ -64,18 +64,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FluentNHibernate">
-      <HintPath>..\..\Packages\FluentNHibernate.1.2.0.712\lib\FluentNHibernate.dll</HintPath>
+      <HintPath>..\..\ReferencedAssemblies\NHibernate\FluentNHibernate.dll</HintPath>
     </Reference>
-    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Packages\Iesi.Collections.3.1.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\..\ReferencedAssemblies\NHibernate\Iesi.Collections.dll</HintPath>
     </Reference>
-    <Reference Include="Inflector.Net, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Inflector.Net">
       <HintPath>..\..\ReferencedAssemblies\NHibernate\Inflector.Net.dll</HintPath>
     </Reference>
-    <Reference Include="NHibernate, Version=2.1.0.2001, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="NHibernate">
       <HintPath>..\..\ReferencedAssemblies\NHibernate\NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="SharpArch.Domain">
@@ -114,7 +111,6 @@
     <Compile Include="NHibernateMaps\ProductModelProductDescriptionMap.cs" />
     <Compile Include="NHibernateMaps\SalesOrderDetailMap.cs" />
     <Compile Include="NHibernateMaps\SalesOrderHeaderMap.cs" />
-    <Compile Include="Queries\ProductsForSaleQuery.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SharpArchCookbook.Domain\SharpArchCookbook.Domain.csproj">

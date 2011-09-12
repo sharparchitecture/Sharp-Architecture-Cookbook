@@ -41,11 +41,6 @@
         private static void AddGenericRepositoriesTo(IWindsorContainer container)
         {
             container.Register(
-                Component.For(typeof(IQuery<>))
-                    .ImplementedBy(typeof(NHibernateQuery<>))
-                    .Named("NHibernateQuery"));
-
-            container.Register(
                 Component.For(typeof(IEntityDuplicateChecker))
                     .ImplementedBy(typeof(EntityDuplicateChecker))
                     .Named("entityDuplicateChecker"));
@@ -78,11 +73,6 @@
                 AllTypes.FromAssemblyNamed("SharpArchCookbook.Web.Mvc")
                     .BasedOn<NHibernateQuery>()
                     .WithService.FirstInterface());
-
-            container.Register(
-                AllTypes.FromAssemblyNamed("SharpArchCookbook.Infrastructure")
-                    .BasedOn(typeof(NHibernateQuery<>))
-                    .WithService.DefaultInterface());
         }
 
         private static void AddCommandHandlersTo(IWindsorContainer container)

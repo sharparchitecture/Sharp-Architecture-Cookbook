@@ -20,7 +20,6 @@ namespace MSpecTests.SharpArchCookbook.Web.Mvc.Controllers
     
     using global::SharpArchCookbook.Domain.Contracts.Tasks;
     using global::SharpArchCookbook.Web.Mvc.Controllers;
-    using global::SharpArchCookbook.Web.Mvc.Controllers.Queries.Products;
 
     using Machine.Specifications;
     using Machine.Specifications.AutoMocking.Rhino;

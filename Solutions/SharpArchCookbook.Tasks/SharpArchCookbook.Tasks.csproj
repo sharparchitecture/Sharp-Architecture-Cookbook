@@ -88,9 +88,7 @@
     </Compile>
     <Compile Include="CommandHandlers\ChangeCustomerAddressHandler.cs" />
     <Compile Include="Commands\ChangeCustomerAddressCommand.cs" />
-    <Compile Include="Commands\ChangeCustomerAddressResult.cs" />
     <Compile Include="ProductModelTasks.cs" />
-    <Compile Include="ProductTasks.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SharpArchCookbook.Domain\SharpArchCookbook.Domain.csproj">
