@@ -8,7 +8,7 @@
     {
         public void Override(AutoMapping<SalesOrderHeader> mapping) 
         {
-            mapping.Table("`SalesLT.SalesOrderHeader`");
+            mapping.Table("SalesLT.SalesOrderHeader");
 
             mapping.Id(x => x.Id, "SalesOrderID");
         }
