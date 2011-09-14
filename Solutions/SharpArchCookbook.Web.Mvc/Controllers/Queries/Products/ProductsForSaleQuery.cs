@@ -7,7 +7,7 @@ namespace SharpArchCookbook.Web.Mvc.Controllers.Queries.Products
 
   using SharpArchCookbook.Domain;
 
-  class ProductsForSaleQuery : NHibernateQuery, IProductsForSaleQuery
+  public class ProductsForSaleQuery : NHibernateQuery, IProductsForSaleQuery
   {
     public IList<Product> GetProductsForSale()
     {
