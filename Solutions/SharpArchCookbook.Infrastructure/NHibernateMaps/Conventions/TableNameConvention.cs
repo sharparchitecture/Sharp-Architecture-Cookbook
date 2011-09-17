@@ -10,7 +10,7 @@ namespace SharpArchCookbook.Infrastructure.NHibernateMaps.Conventions
     {
         public void Apply(FluentNHibernate.Conventions.Instances.IClassInstance instance)
         {
-            instance.Table(Inflector.Net.Inflector.Pluralize(instance.EntityType.Name));
+            instance.Table(instance.EntityType.Name.InflectTo().Capitalized);
 
         }
     }

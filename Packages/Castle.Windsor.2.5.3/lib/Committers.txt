@@ -1,11 +1,11 @@
-ï»¿This file names who's behind the Castle Team. You can find more about us at http://www.castleproject.org/community/team.html
+This file names who's behind the Castle Team. You can find more about us at http://www.castleproject.org/community/team.html
 
 Committers
 ==========
 (ordered by the date when joined the project)
 
 - hammett/Hamilton Verissimo
-- Henry Conceiï¿½ï¿½o
+- Henry Conceição
 - Kevin Williams
 - Craig Neuwirt
 - Gilles Bayon
@@ -32,7 +32,7 @@ Committers
 - Ken Egozi
 - Chris Ortman
 - Jonathon Rossi
-- Tuna Toksï¿½z
+- Tuna Toksöz
 - Krzysztof Kozmic
 - Mauricio Scheffer
 - John Simons
@@ -56,7 +56,7 @@ PMC Members
 (ordered by the date when joined the PMC)
 
 - hammett/Hamilton Verissimo (Chair)
-- Henry Conceiï¿½ï¿½o
+- Henry Conceição
 - Kevin Williams
 - Craig Neuwirt
 - Gilles Bayon

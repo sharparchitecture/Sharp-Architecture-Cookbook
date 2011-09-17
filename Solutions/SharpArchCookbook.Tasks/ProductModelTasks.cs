@@ -7,14 +7,13 @@
     using Domain;
     using Domain.Contracts.Tasks;
 
-    using SharpArch.NHibernate.Contracts.Repositories;
-    using SharpArch.NHibernate.Web.Mvc;
-    
+    using SharpArch.Domain.PersistenceSupport;
+
     public class ProductModelTasks : IProductModelTasks
     {
-        private readonly INHibernateRepository<ProductModel> productModelRepository;
+        private readonly IRepository<ProductModel> productModelRepository;
 
-        public ProductModelTasks(INHibernateRepository<ProductModel> productModelRepository)
+        public ProductModelTasks(IRepository<ProductModel> productModelRepository)
         {
             this.productModelRepository = productModelRepository;
         }

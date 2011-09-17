@@ -1,4 +1,4 @@
-ï»¿2.5.2 (2010-11-15)
+2.5.2 (2010-11-15)
 ==================
 - fixed DYNPROXY-150 - Finalizer should not be proxied
 - implemented DYNPROXY-149 - Make AllMethodsHook members virtual so it can be used as a base class
@@ -29,7 +29,7 @@
 2.5.0 (2010-08-21)
 ==================
 - DynamicProxy will now not replicate non-public attribute types
-- Applied patch from Kenneth Siewers Mï¿½ller which adds parameterless constructor to DefaultSmtpSender implementation, to be able to configure the inner SmtpClient from the application configuration file (system.net.smtp).
+- Applied patch from Kenneth Siewers Møller which adds parameterless constructor to DefaultSmtpSender implementation, to be able to configure the inner SmtpClient from the application configuration file (system.net.smtp).
 - added support for .NET 4 and Silverlight 4, updated solution to VisualStudio 2010
 - Removed obsolete overload of CreateClassProxy
 - Added class proxy with taget

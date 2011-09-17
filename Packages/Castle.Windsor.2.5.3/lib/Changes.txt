@@ -1,4 +1,4 @@
-ï»¿2.5.3 (2011-02-02)
+2.5.3 (2011-02-02)
 ==================
 - fixed IOC-266 - Dependency of a generic service is not disposed in Windsor 2.5.x 
 - fixed IOC-261 - Disposing of typed-factory can throw argument null exception
@@ -10,7 +10,7 @@
 - implemented IOC-243 - Unseal the InterceptorAttribute class
 - fixed IOC-239 - ArrayResolver attempts to instantiate an unresolvable array dependency
 - fixed IOC-238 - Resolving Composite depending on a Decorator may fire up cycle detection fuse
-- fixed IOC-237 - Castle Windsor : Possible bug with Startable Facility and ï¿½decorator patternï¿½ dependencies
+- fixed IOC-237 - Castle Windsor : Possible bug with Startable Facility and “decorator pattern” dependencies
 - fixed IOC-236 - Typed Factory Facility causes memory leak because it keeps a reference after releasing object in list 'trackedComponents'
 - fixed IOC-235 - TypedFactoryFacility with inherited interfaces throws an exception
 - fixed IOC-234 - StackOverflow causing inability to use debugger view when there are components with dependency cycles in the container

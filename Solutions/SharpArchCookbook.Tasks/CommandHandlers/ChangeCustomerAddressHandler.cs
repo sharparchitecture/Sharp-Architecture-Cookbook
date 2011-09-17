@@ -4,13 +4,13 @@
     using Domain;
 
     using SharpArch.Domain.Commands;
-    using SharpArch.NHibernate.Contracts.Repositories;
-  
+    using SharpArch.Domain.PersistenceSupport;
+
     public class ChangeCustomerAddressHandler : ICommandHandler<ChangeCustomerAddressCommand>
     {
-        private readonly INHibernateRepository<Address> addressRepository;
+        private readonly IRepository<Address> addressRepository;
 
-        public ChangeCustomerAddressHandler(INHibernateRepository<Address> addressRepository)
+        public ChangeCustomerAddressHandler(IRepository<Address> addressRepository)
         {
             this.addressRepository = addressRepository;
         }
