@@ -48,11 +48,13 @@
             container.Register(
                 Component.For(typeof(INHibernateRepository<>))
                     .ImplementedBy(typeof(NHibernateRepository<>))
+                    .Forward(typeof(IRepository<>))
                     .Named("nhibernateRepositoryType"));
 
             container.Register(
                 Component.For(typeof(INHibernateRepositoryWithTypedId<,>))
                     .ImplementedBy(typeof(NHibernateRepositoryWithTypedId<,>))
+                    .Forward(typeof(IRepositoryWithTypedId<,>))
                     .Named("nhibernateRepositoryWithTypedId"));
 
             container.Register(
