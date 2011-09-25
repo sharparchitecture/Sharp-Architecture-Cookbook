@@ -9,7 +9,7 @@
     {
         public void Override(AutoMapping<Address> mapping)
         {
-            mapping.Table("SalesLT.Address");
+            mapping.Table("Address");
 
             mapping.Id(x => x.Id, "AddressID");
         }

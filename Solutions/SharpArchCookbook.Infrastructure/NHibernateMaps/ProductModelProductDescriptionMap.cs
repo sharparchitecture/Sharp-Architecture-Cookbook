@@ -9,7 +9,7 @@
     {
         public void Override(AutoMapping<ProductModeProductionDescription> mapping)
         {
-            mapping.Table("SalesLT.ProductModeProductionDescription");
+            mapping.Table("ProductModeProductionDescription");
 
             mapping.CompositeId().KeyReference(x => x.ProductModel, "ProductModelID")
                                  .KeyReference(x => x.ProductDescription, "ProductDescriptionID");

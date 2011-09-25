@@ -10,7 +10,7 @@
     {
         public void Override(AutoMapping<CustomerAddress> mapping)
         {
-            mapping.Table("SalesLT.CustomerAddress");
+            mapping.Table("CustomerAddress");
 
             mapping.Id(x => x.Id, "rowguid");
         }
