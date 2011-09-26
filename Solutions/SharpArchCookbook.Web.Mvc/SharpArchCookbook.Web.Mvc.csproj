@@ -145,6 +145,7 @@
     <Content Include="Content\js\modernizr-1.7.min.js" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
+    <Content Include="packages.config" />
     <None Include="Views\Customer\AddressChange.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
