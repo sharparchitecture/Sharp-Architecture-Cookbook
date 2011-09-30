@@ -14,10 +14,14 @@
             IWindsorContainer container = new WindsorContainer();
 
             container.Register(
-                    Component
-                        .For(typeof(IEntityDuplicateChecker))
-                        .ImplementedBy(typeof(EntityDuplicateChecker))
-                        .Named("entityDuplicateChecker"));
+                Component.For(typeof(IEntityDuplicateChecker))
+                    .ImplementedBy(typeof(EntityDuplicateChecker))
+                    .Named("entityDuplicateChecker"));
+
+            container.Register(
+                    Component.For(typeof(ISessionFactoryKeyProvider))
+                        .ImplementedBy(typeof(DefaultSessionFactoryKeyProvider))
+                        .Named("sessionFactoryKeyProvider"));
 
             ServiceLocator.SetLocatorProvider(() => new WindsorServiceLocator(container));
         }

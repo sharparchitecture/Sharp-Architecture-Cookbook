@@ -11,14 +11,21 @@
     [TestFixture]
     public class ProductsQueryObjectTests : RepositoryTestsBase
     {
-        private ProductsListQuery productsListQuery = new ProductsListQuery();
-        private INHibernateRepository<Product> productRepository = new NHibernateRepository<Product>();
-        
+        private readonly ProductsListQuery productsListQuery = new ProductsListQuery();
+        private readonly INHibernateRepository<Product> productRepository = new NHibernateRepository<Product>();
+
+        protected override void SetUp()
+        {
+          ServiceLocatorInitializer.Init();
+          base.SetUp();
+        }
+
         [Test]
         public void CanGetViewModel()
         {
             var productViewModels = this.productsListQuery.GetPagedList(1, 50);
             productViewModels.ShouldNotBeNull();
+            productViewModels.TotalItems.ShouldEqual(1);
         }
 
         protected override void LoadTestData() 
