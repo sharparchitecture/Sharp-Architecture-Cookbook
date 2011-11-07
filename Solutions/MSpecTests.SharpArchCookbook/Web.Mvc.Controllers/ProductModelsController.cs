@@ -61,12 +61,52 @@ namespace MSpecTests.SharpArchCookbook.Web.Mvc.Controllers
                                             product_model = new ProductModel
                                                                 {
                                                                     ModifiedDate = DateTime.Now,
-                                                                    Name = "Hello"
+                                                                    Name = "Sharp Architecture"
                                                                 };
                                         };
 
         Because of = () => result = subject.CreateOrUpdate(product_model);
 
-        It it_should_ask_tasks_to_add_new_product_model = () => product_model_tasks.CreateOrUpdate(product_model);
+        It it_should_ask_tasks_to_add_new_product_model = () => product_model_tasks.AssertWasCalled(x => x.CreateOrUpdate(product_model));
+    }
+
+    [Subject(typeof(ProductModelsController))]
+    public class when_the_products_controller_is_asked_to_create_a_product_with_null_name : specification_for_product_models_controller
+    {
+        static ActionResult result;
+        static ProductModel product_model;
+
+        private Establish context = () =>
+        {
+            product_model = new ProductModel
+            {
+                ModifiedDate = DateTime.Now,
+                Name = null
+            };
+        };
+
+        Because of = () => result = subject.CreateOrUpdate(product_model);
+
+        It it_should_not_ask_tasks_to_add_new_product_model = () => product_model_tasks.AssertWasNotCalled(x => x.CreateOrUpdate(product_model));
+    }
+
+    [Subject(typeof(ProductModelsController))]
+    public class when_the_products_controller_is_asked_to_create_a_product_with_3_charachter_name : specification_for_product_models_controller
+    {
+        static ActionResult result;
+        static ProductModel product_model;
+
+        private Establish context = () =>
+        {
+            product_model = new ProductModel
+            {
+                ModifiedDate = DateTime.Now,
+                Name = "abc"
+            };
+        };
+
+        Because of = () => result = subject.CreateOrUpdate(product_model);
+
+        It it_should_not_ask_tasks_to_add_new_product_model = () => product_model_tasks.AssertWasNotCalled(x => x.CreateOrUpdate(product_model));
     }
 }
