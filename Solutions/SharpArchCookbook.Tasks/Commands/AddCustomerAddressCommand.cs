@@ -1,11 +1,8 @@
-﻿namespace SharpArchCookbook.Tasks.Commands
+namespace SharpArchCookbook.Tasks.Commands
 {
-    using System.ComponentModel.DataAnnotations;
-
-    public class ChangeCustomerAddressCommand : AddressCommandBase
+    public class AddCustomerAddressCommand : AddressCommandBase
     {
-        public ChangeCustomerAddressCommand(
-            int id,
+        public AddCustomerAddressCommand(
             string addressLine1,
             string addressLine2,
             string city,
@@ -14,10 +11,6 @@
             string countryRegion)
             : base(addressLine1, addressLine2, city, stateProvince, postalCode, countryRegion)
         {
-            this.Id = id;
         }
-
-        [Required]
-        public int Id { get; set; }
     }
 }

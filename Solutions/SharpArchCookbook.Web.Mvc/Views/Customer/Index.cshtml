@@ -15,5 +15,5 @@
     column.For(x => x.City);
     column.For(x => x.StateProvince);
     column.For(x => x.PostalCode);
-    column.For(x => (Html.ActionLink<CustomerController>(a => a.AddressChange(x.Id), "Edit"))).Named("Edit");
+    column.For(x => (Html.ActionLink<CustomerController>(a => a.ChangeAddress(x.Id), "Edit"))).Named("Edit");
 })

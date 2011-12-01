@@ -146,7 +146,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
-    <None Include="Views\Customer\AddressChange.cshtml" />
+    <None Include="Views\Customer\ChangeAddress.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
     <None Include="Views\Products\Index.cshtml" />

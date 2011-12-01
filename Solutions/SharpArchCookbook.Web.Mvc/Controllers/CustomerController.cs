@@ -10,6 +10,8 @@
     
     using SharpArch.Domain.Commands;
     using SharpArch.NHibernate.Contracts.Repositories;
+    using SharpArch.NHibernate.Web.Mvc;
+
     using Tasks.Commands;
     using ViewModels;
     
@@ -26,34 +28,39 @@
             this.customerAddressRepository = customerAddressRepository;
         }
 
+        [Transaction]
+        [HttpGet]
         public ActionResult Index()
         {
             var tenLittleCustomers = this.customerAddressRepository.GetAll().Take(10).ToList();
             return View(tenLittleCustomers);
         }
 
+        [Transaction]
         [HttpGet]
-        public ActionResult AddressChange(int addressId)
+        public ActionResult ChangeAddress(int id)
         {
-            var viewModel = this.customerAddressRepository.Get(addressId);
+            var viewModel = this.customerAddressRepository.Get(id);
             return View(viewModel);
         }
 
+        [Transaction]
+        [ValidateAntiForgeryToken]
         [HttpPost]
-        public ActionResult AddressChange(Address viewModel)
+        public ActionResult ChangeAddress(Address address)
         {
             var command = new ChangeCustomerAddressCommand(
-                                                           viewModel.Id,
-                                                           viewModel.AddressLine1,
-                                                           viewModel.AddressLine2,
-                                                           viewModel.City,
-                                                           viewModel.StateProvince,
-                                                           viewModel.PostalCode,
-                                                           viewModel.CountryRegion);
+                                                           address.Id,
+                                                           address.AddressLine1,
+                                                           address.AddressLine2,
+                                                           address.City,
+                                                           address.StateProvince,
+                                                           address.PostalCode,
+                                                           address.CountryRegion);
 
             this.commandProcessor.Process(command);
 
-            return View(viewModel);
+            return View(address);
         }
     }
 }

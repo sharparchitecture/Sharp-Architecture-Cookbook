@@ -18,19 +18,17 @@
         public void Handle(ChangeCustomerAddressCommand command)
         {
             var address = this.addressRepository.Get(command.Id);
-            var newAddress = new Address
-                                 {
-                                     AddressLine1 = command.AddressLine1,
-                                     AddressLine2 = command.AddressLine2,
-                                     City = command.City,
-                                     StateProvince = command.StateProvince,
-                                     PostalCode = command.PostalCode,
-                                     ModifiedDate = command.ModifiedDate,
-                                     CountryRegion = command.CountryRegion
-                                 };
 
-            address = newAddress;
+            address.AddressLine1 = command.AddressLine1;
+            address.AddressLine2 = command.AddressLine2;
+            address.City = command.City;
+            address.StateProvince = command.StateProvince;
+            address.PostalCode = command.PostalCode;
+            address.ModifiedDate = command.ModifiedDate;
+            address.CountryRegion = command.CountryRegion;
+
             this.addressRepository.SaveOrUpdate(address);
         }
     }
 }
+

@@ -89,7 +89,10 @@
     <Compile Include="..\..\Common\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="CommandHandlers\AddCustomerAddressHandler.cs" />
     <Compile Include="CommandHandlers\ChangeCustomerAddressHandler.cs" />
+    <Compile Include="Commands\AddCustomerAddressCommand.cs" />
+    <Compile Include="Commands\AddressCommandBase.cs" />
     <Compile Include="Commands\ChangeCustomerAddressCommand.cs" />
     <Compile Include="ProductModelTasks.cs" />
   </ItemGroup>
