@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -59,7 +59,7 @@
     <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <HintPath>..\..\Packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
     </Reference>
-    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+    <Reference Include="log4net">
       <HintPath>..\..\Packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -84,7 +84,7 @@
       <HintPath>..\..\Packages\SharpArch.Domain.2.0.0-RC2-612\lib\NET40\SharpArch.Domain.dll</HintPath>
     </Reference>
     <Reference Include="SharpArch.NHibernate, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\Packages\SharpArch.NHibernate.2.0.0-RC2-612\lib\NET40\SharpArch.NHibernate.dll</HintPath>
+      <HintPath>..\..\Packages\SharpArch.NHibernate.2.0.0-RC2-0\lib\NET40\SharpArch.NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="SharpArch.Web.Mvc, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\Packages\SharpArch.Web.Mvc.Castle.2.0.0-RC2-612\lib\NET40\SharpArch.Web.Mvc.dll</HintPath>
@@ -145,7 +145,7 @@
     <Content Include="Content\js\modernizr-1.7.min.js" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
-    <Content Include="packages.config" />
+    <Content Include="C:\Users\seif\AppData\Local\Temp\_rltm_build_fl_packages.config" />
     <None Include="Views\Customer\ChangeAddress.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
