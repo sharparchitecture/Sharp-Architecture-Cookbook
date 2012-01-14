@@ -18,3 +18,5 @@ error-*.xml
 
 *.dotCover
 *mm_cache.bin
+*.pidb
+*.userprefs
