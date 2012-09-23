@@ -2,44 +2,46 @@
 
 namespace SharpArchCookbook.Web.Mvc.Controllers.Queries.Products
 {
+    using System.Linq;
+
     using Domain;
     using MvcContrib.Pagination;
-    using NHibernate.Transform;
-    using SharpArch.NHibernate;
+
+    using Raven.Client;
+    using Raven.Client.Linq;
+
     using ViewModels;
 
-    public class ProductsListQuery : NHibernateQuery, IProductsListQuery
+    public class ProductsListQuery : IProductsListQuery
     {
+        private IDocumentSession session;
+
+        public ProductsListQuery(IDocumentSession session)
+        {
+            this.session = session;
+        }
+
         public IPagination<ProductViewModel> GetPagedList(int page, int size)
         {
-            var query = Session.QueryOver<Product>().OrderBy(x => x.Name).Asc;
+            var query = session.Query<Product>();
 
-            var count = query.ToRowCountQuery();
-            var totalCount = count.FutureValue<int>();
-
+            RavenQueryStatistics stats;
+            
             var firstResult = (page - 1) * size;
 
-            ProductViewModel viewModel = null;
-            ProductCategory categoryAlias = null;
-            
-            var viewModels =
-               query.JoinAlias(x => x.Category, () => categoryAlias)
-                    .SelectList(list => list
-                                         .Select(x => x.Id).WithAlias(() => viewModel.Id)
-                                         .Select(x => x.Name).WithAlias(() => viewModel.Name)
-                                         .Select(x => x.ProductNumber).WithAlias(() => viewModel.ProductNumber)
-                                         .Select(x => x.ListPrice).WithAlias(() => viewModel.ListPrice)
-                                         .Select(x => x.SellStartDate).WithAlias(() => viewModel.SellEndDate)
-                                         .Select(x => x.SellEndDate).WithAlias(() => viewModel.SellEndDate)
+            var viewModels = from product in query.Statistics(out stats).Skip(firstResult).Take(size)
+                select new ProductViewModel
+                        {
+                            Id = product.Id,
+                            Name = product.Name,
+                            ProductNumber = product.ProductNumber,
+                            ListPrice = product.ListPrice,
+                            SellStartDate = product.SellStartDate,
+                            SellEndDate = product.SellEndDate,
+                            CategoryName = product.Category.Name
+                        };
 
-                                         // Flattening the object graph
-                                         .Select(x => categoryAlias.Name).WithAlias(() => viewModel.CategoryName))
-                .TransformUsing(Transformers.AliasToBean(typeof(ProductViewModel)))
-                .Skip(firstResult)
-                .Take(size)
-                .Future<ProductViewModel>();
-
-            return new CustomPagination<ProductViewModel>(viewModels, page, size, totalCount.Value);
+            return new CustomPagination<ProductViewModel>(viewModels, page, size, stats.TotalResults);
         }
     }
 }

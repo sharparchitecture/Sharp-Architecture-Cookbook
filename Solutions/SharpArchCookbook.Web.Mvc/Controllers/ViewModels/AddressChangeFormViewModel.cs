@@ -1,7 +1,6 @@
 ﻿namespace SharpArchCookbook.Web.Mvc.Controllers.ViewModels
 {
     using System;
-    using FluentNHibernate.Data;
 
     public class AddressChangeFormViewModel
     {

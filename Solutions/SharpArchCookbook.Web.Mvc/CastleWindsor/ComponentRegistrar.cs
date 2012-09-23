@@ -5,12 +5,16 @@
 
     using SharpArch.Domain.Commands;
     using SharpArch.Domain.PersistenceSupport;
-    using SharpArch.NHibernate;
-    using SharpArch.NHibernate.Contracts.Repositories;
+    using SharpArch.RavenDb;
+    using SharpArch.RavenDb.Contracts.Repositories;
     using SharpArch.Web.Mvc.Castle;
 
     public class ComponentRegistrar
     {
+        public ComponentRegistrar()
+        {
+        }
+
         public static void AddComponentsTo(IWindsorContainer container) 
         {
             AddGenericRepositoriesTo(container);
@@ -18,6 +22,8 @@
             AddQueryObjectsTo(container);
             AddTasksTo(container);
             AddCommandHandlersTo(container);
+
+            container.Install(new RavenInstaller());
         }
 
         private static void AddTasksTo(IWindsorContainer container)
@@ -26,7 +32,8 @@
                 AllTypes
                     .FromAssemblyNamed("SharpArchCookbook.Tasks")
                     .Pick().If(t => t.Name.EndsWith("Tasks"))
-                    .WithService.FirstNonGenericCoreInterface("SharpArchCookbook.Domain"));
+                    .WithService.FirstNonGenericCoreInterface("SharpArchCookbook.Domain")
+                    .LifestyleTransient());
         }
 
         private static void AddCustomRepositoriesTo(IWindsorContainer container) 
@@ -35,46 +42,41 @@
                 AllTypes
                     .FromAssemblyNamed("SharpArchCookbook.Infrastructure")
                     .BasedOn(typeof(IRepositoryWithTypedId<,>))
-                    .WithService.FirstNonGenericCoreInterface("SharpArchCookbook.Domain"));
+                    .WithService.FirstNonGenericCoreInterface("SharpArchCookbook.Domain")
+                    .LifestyleTransient());
         }
 
         private static void AddGenericRepositoriesTo(IWindsorContainer container)
         {
             container.Register(
-                Component.For(typeof(IEntityDuplicateChecker))
-                    .ImplementedBy(typeof(EntityDuplicateChecker))
-                    .Named("entityDuplicateChecker"));
-
-            container.Register(
-                Component.For(typeof(INHibernateRepository<>))
-                    .ImplementedBy(typeof(NHibernateRepository<>))
+                Component.For(typeof(IRavenDbRepository<>))
+                    .ImplementedBy(typeof(RavenDbRepository<>))
                     .Forward(typeof(IRepository<>))
-                    .Named("nhibernateRepositoryType"));
+                    .Named("ravenRepositoryType")
+                    .LifestyleTransient());
 
             container.Register(
-                Component.For(typeof(INHibernateRepositoryWithTypedId<,>))
-                    .ImplementedBy(typeof(NHibernateRepositoryWithTypedId<,>))
+                Component.For(typeof(IRavenDbRepositoryWithTypedId<,>))
+                    .ImplementedBy(typeof(RavenDbRepositoryWithTypedId<,>))
                     .Forward(typeof(IRepositoryWithTypedId<,>))
-                    .Named("nhibernateRepositoryWithTypedId"));
-
-            container.Register(
-                    Component.For(typeof(ISessionFactoryKeyProvider))
-                        .ImplementedBy(typeof(DefaultSessionFactoryKeyProvider))
-                        .Named("sessionFactoryKeyProvider"));
+                    .Named("ravenRepositoryWithTypedId")
+                    .LifestyleTransient());
 
             container.Register(
                     Component.For(typeof(SharpArch.Domain.Commands.ICommandProcessor))
                         .ImplementedBy(typeof(SharpArch.Domain.Commands.CommandProcessor))
-                        .Named("commandProcessor"));
+                        .Named("commandProcessor")
+                        .LifestyleTransient());
                 
         }
 
-        private static void AddQueryObjectsTo(IWindsorContainer container) 
+        private static void AddQueryObjectsTo(IWindsorContainer container)
         {
             container.Register(
                 AllTypes.FromAssemblyNamed("SharpArchCookbook.Web.Mvc")
-                    .BasedOn<NHibernateQuery>()
-                    .WithService.FirstInterface());
+                    .Where(t => t.Name.EndsWith("Query"))
+                    .WithService.FirstInterface()
+                    .LifestyleTransient());
         }
 
         private static void AddCommandHandlersTo(IWindsorContainer container)
@@ -82,7 +84,8 @@
             container.Register(
                 AllTypes.FromAssemblyNamed("SharpArchCookbook.Tasks")
                     .BasedOn(typeof(ICommandHandler<>))
-                    .WithService.FirstInterface());
+                    .WithService.FirstInterface()
+                    .LifestyleTransient());
         }
     }
 }

@@ -1,6 +1,10 @@
 namespace SharpArchCookbook.Web.Mvc
 {
     using System;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Linq;
     using System.Reflection;
     using System.Web.Mvc;
     using System.Web.Routing;
@@ -13,18 +17,18 @@ namespace SharpArchCookbook.Web.Mvc
     using CommonServiceLocator.WindsorAdapter;
 
     using Controllers;
-    
-    using Infrastructure.NHibernateMaps;
-    
+
+    using SharpArch.Domain.DomainModel;
+    using SharpArch.Domain.PersistenceSupport;
+
     using log4net.Config;
     
     using Microsoft.Practices.ServiceLocation;
     
-    using SharpArch.NHibernate;
-    using SharpArch.NHibernate.Web.Mvc;
+    using SharpArch.RavenDb;
+    using SharpArch.RavenDb.Web.Mvc;
     using SharpArch.Web.Mvc.Castle;
     using SharpArch.Web.Mvc.ModelBinder;
-    
 
     /// <summary>
     /// Represents the MVC Application
@@ -35,8 +39,6 @@ namespace SharpArchCookbook.Web.Mvc
     /// </remarks>
     public class MvcApplication : System.Web.HttpApplication
     {
-        private WebSessionStorage webSessionStorage;
-
         /// <summary>
         /// Due to issues on IIS7, the NHibernate initialization must occur in Init().
         /// But Init() may be invoked more than once; accordingly, we introduce a thread-safe
@@ -46,12 +48,10 @@ namespace SharpArchCookbook.Web.Mvc
         public override void Init()
         {
             base.Init();
-            this.webSessionStorage = new WebSessionStorage(this);
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
-            NHibernateInitializer.Instance().InitializeNHibernateOnce(this.InitialiseNHibernateSessions);
         }
 
         protected void Application_Error(object sender, EventArgs e) 
@@ -95,16 +95,6 @@ namespace SharpArchCookbook.Web.Mvc
 
             ServiceLocator.SetLocatorProvider(() => new WindsorServiceLocator(container));
         }
-
-        private void InitialiseNHibernateSessions()
-        {
-            NHibernateSession.ConfigurationCache = new NHibernateConfigurationFileCache();
-
-            NHibernateSession.Init(
-                this.webSessionStorage,
-                new[] { Server.MapPath("~/bin/SharpArchCookbook.Infrastructure.dll") },
-                new AutoPersistenceModelGenerator().Generate(),
-                Server.MapPath("~/NHibernate.config"));
-        }
     }
 }
+

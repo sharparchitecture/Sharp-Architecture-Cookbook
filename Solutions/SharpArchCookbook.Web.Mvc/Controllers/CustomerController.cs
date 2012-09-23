@@ -9,8 +9,8 @@
     using MvcContrib;
     
     using SharpArch.Domain.Commands;
-    using SharpArch.NHibernate.Contracts.Repositories;
-    using SharpArch.NHibernate.Web.Mvc;
+    using SharpArch.RavenDb.Contracts.Repositories;
+    using SharpArch.RavenDb.Web.Mvc;
 
     using Tasks.Commands;
     using ViewModels;
@@ -20,15 +20,15 @@
     {
         private readonly ICommandProcessor commandProcessor;
 
-        private readonly INHibernateRepository<Address> customerAddressRepository;
+        private readonly IRavenDbRepository<Address> customerAddressRepository;
 
-        public CustomerController(ICommandProcessor commandProcessor, INHibernateRepository<Address> customerAddressRepository)
+        public CustomerController(ICommandProcessor commandProcessor, IRavenDbRepository<Address> customerAddressRepository)
         {
             this.commandProcessor = commandProcessor;
             this.customerAddressRepository = customerAddressRepository;
         }
 
-        [Transaction]
+        [UnitOfWork]
         [HttpGet]
         public ActionResult Index()
         {
@@ -36,7 +36,7 @@
             return View(tenLittleCustomers);
         }
 
-        [Transaction]
+        [UnitOfWork]
         [HttpGet]
         public ActionResult ChangeAddress(int id)
         {
@@ -44,7 +44,7 @@
             return View(viewModel);
         }
 
-        [Transaction]
+        [UnitOfWork]
         [ValidateAntiForgeryToken]
         [HttpPost]
         public ActionResult ChangeAddress(Address address)

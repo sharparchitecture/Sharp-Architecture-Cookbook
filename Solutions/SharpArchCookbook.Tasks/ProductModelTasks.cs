@@ -31,7 +31,6 @@
 
         public ProductModel CreateOrUpdate(ProductModel productModel)
         {
-            productModel.ModifiedDate = DateTime.Now;
             this.productModelRepository.SaveOrUpdate(productModel);
             return productModel;
         }

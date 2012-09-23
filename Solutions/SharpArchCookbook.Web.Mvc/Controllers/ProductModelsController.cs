@@ -4,7 +4,7 @@
     using Domain;
     using Domain.Contracts.Tasks;
     using MvcContrib;
-    using SharpArch.NHibernate.Web.Mvc;
+    using SharpArch.RavenDb.Web.Mvc;
 
     public class ProductModelsController : Controller
     {
@@ -15,20 +15,20 @@
             this.productModelTasks = productModelTasks;
         }
 
-        [Transaction]
+        [UnitOfWork]
         public ActionResult Index()
         {
             return View(this.productModelTasks.GetAll());
         }
 
-        [Transaction]
+        [UnitOfWork]
         [HttpGet]
         public ActionResult CreateOrUpdate(int id)
         {
             return View(this.productModelTasks.Get(id));
         }
       
-        [Transaction]
+        [UnitOfWork]
         [ValidateAntiForgeryToken]
         [HttpPost]
         public ActionResult CreateOrUpdate(ProductModel productModel)
