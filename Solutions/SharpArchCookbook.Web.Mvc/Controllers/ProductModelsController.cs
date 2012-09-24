@@ -6,19 +6,24 @@
     using MvcContrib;
     using SharpArch.RavenDb.Web.Mvc;
 
+    using SharpArchCookbook.Web.Mvc.Controllers.Queries.Products;
+
     public class ProductModelsController : Controller
     {
         private readonly IProductModelTasks productModelTasks;
 
-        public ProductModelsController(IProductModelTasks productModelTasks)
+        private readonly IProductModelsListQuery query;
+
+        public ProductModelsController(IProductModelTasks productModelTasks, IProductModelsListQuery query)
         {
             this.productModelTasks = productModelTasks;
+            this.query = query;
         }
 
         [UnitOfWork]
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            return View(this.productModelTasks.GetAll());
+            return View(this.query.GetPagedList(page ?? 1, 10));
         }
 
         [UnitOfWork]
@@ -36,7 +41,7 @@
             if (ModelState.IsValid && productModel.IsValid())
             {
                 this.productModelTasks.CreateOrUpdate(productModel);
-                return this.RedirectToAction(x => x.Index());
+                return this.RedirectToAction(x => x.Index(null));
             }
 
             return View(productModel);

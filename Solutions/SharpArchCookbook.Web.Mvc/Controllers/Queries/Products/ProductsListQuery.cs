@@ -44,4 +44,44 @@ namespace SharpArchCookbook.Web.Mvc.Controllers.Queries.Products
             return new CustomPagination<ProductViewModel>(viewModels, page, size, stats.TotalResults);
         }
     }
+
+    public class ProductModelsListQuery : IProductModelsListQuery
+    {
+        private IDocumentSession session;
+
+        public ProductModelsListQuery(IDocumentSession session)
+        {
+            this.session = session;
+        }
+
+        public IPagination<ProductModelViewModel> GetPagedList(int page, int size)
+        {
+            var query = session.Query<ProductModel>();
+
+            RavenQueryStatistics stats;
+
+            var firstResult = (page - 1) * size;
+
+            var viewModels = from product in query.Statistics(out stats).Skip(firstResult).Take(size).ToArray()
+                             select new ProductModelViewModel
+                             {
+                                 Id = product.Id,
+                                 Name = product.Name
+                             };
+
+            return new CustomPagination<ProductModelViewModel>(viewModels, page, size, stats.TotalResults);
+        }
+    }
+
+    public interface IProductModelsListQuery
+    {
+        IPagination<ProductModelViewModel> GetPagedList(int page, int size);
+    }
+
+    public class ProductModelViewModel
+    {
+        public int Id { get; set; }
+
+        public string Name { get; set; }
+    }
 }

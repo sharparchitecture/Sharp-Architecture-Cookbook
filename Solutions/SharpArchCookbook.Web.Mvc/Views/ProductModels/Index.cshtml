@@ -1,7 +1,9 @@
+@using MvcContrib.Pagination
+@using MvcContrib.UI.Pager
 @using SharpArchCookbook.Domain;
 @using MvcContrib.UI.Grid;
 
-@model IList<ProductModel>
+@model MvcContrib.Pagination.IPagination<SharpArchCookbook.Web.Mvc.Controllers.Queries.Products.ProductModelViewModel>
 @{
     ViewBag.Title = "ProductModels";
     Layout = "~/Views/Shared/_Layout.cshtml"; 
@@ -12,5 +14,7 @@
     extraCols.For(x => (Html.ActionLink<ProductModelsController>(a => a.CreateOrUpdate(x.Id), "Edit")))
                             .Named("Edit");
 })
+
+<p>@Html.Pager((IPagination)Model)</p>
 
 @(Html.ActionLink<ProductModelsController>(a => a.CreateOrUpdate(0), "Add"))

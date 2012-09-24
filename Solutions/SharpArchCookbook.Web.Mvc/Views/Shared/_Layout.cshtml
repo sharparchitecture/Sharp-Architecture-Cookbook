@@ -7,8 +7,9 @@
     <link href="/Content/Site.css" rel="stylesheet" type="text/css" />
 
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script src="@Url.Content("/Content/js/jquery-1.6.1.min.js")" type="text/javascript"></script>    
-    <script src="@Url.Content("/Content/js/modernizr-1.7.min.js")" type="text/javascript"></script>
+     <script src="@Url.Content("~/Scripts/jquery-1.8.2.min.js")" type="text/javascript"></script>
+     <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+     <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
 
     <title>@ViewBag.Title</title>    
 </head>
@@ -27,7 +28,7 @@
                         <li>@(Html.ActionLink<CustomerController>(c => c.Index(), "Customers"))</li>
                         <li>@(Html.ActionLink<ProductsController>(c => c.Index(null), "Products"))</li>
                         <li>@(Html.ActionLink<ProductsController>(c => c.ForSale(), "Products For Sale"))</li>
-                        <li>@(Html.ActionLink<ProductModelsController>(c => c.Index(), "ProductModels"))</li>
+                        <li>@(Html.ActionLink<ProductModelsController>(c => c.Index(null), "ProductModels"))</li>
                     </ul>
                 </div>
                 <!--/leftColumn-->

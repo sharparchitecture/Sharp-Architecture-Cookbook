@@ -45,7 +45,7 @@ namespace MSpecTests.SharpArchCookbook.Web.Mvc.Controllers
                                     product_model_tasks.Stub(x => x.GetAll()).Return(the_view_model);
                                   };
 
-        Because of = () => result = subject.Index();
+        Because of = () => result = subject.Index(null);
 
         It should_return_the_default_view = () => result.ShouldBeAView().And().ShouldUseDefaultView();
     }
