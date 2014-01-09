@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>MvcContrib.Mvc3.FluentHtml-ci</id>
+    <version>3.0.100.0</version>
+    <authors>Outercurve Foundation</authors>
+    <owners>Outercurve Foundation</owners>
+    <licenseUrl>http://mvccontrib.codeplex.com/license</licenseUrl>
+    <projectUrl>http://mvccontrib.codeplex.com/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>MvcContrib.FluentHtml is a library of extensible, strongly-typed HTML helpers that employs a fluent API to increase  productivty of authoring MVC views.</description>
+    <summary>MvcContrib.FluentHtml is a library of extensible, strongly-typed HTML helpers that employs a fluent API to increase  productivty of authoring MVC views.</summary>
+    <tags>mvc</tags>
+  </metadata>
+</package>

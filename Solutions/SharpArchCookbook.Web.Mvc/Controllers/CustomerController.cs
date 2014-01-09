@@ -1,4 +1,6 @@
-﻿namespace SharpArchCookbook.Web.Mvc.Controllers
+﻿using SharpArch.Domain.PersistenceSupport;
+
+namespace SharpArchCookbook.Web.Mvc.Controllers
 {
     using System;
     using System.Linq;
@@ -20,9 +22,9 @@
     {
         private readonly ICommandProcessor commandProcessor;
 
-        private readonly INHibernateRepository<Address> customerAddressRepository;
+        private readonly INHibernateRepositoryWithTypedId<Address, int> customerAddressRepository;
 
-        public CustomerController(ICommandProcessor commandProcessor, INHibernateRepository<Address> customerAddressRepository)
+        public CustomerController(ICommandProcessor commandProcessor, INHibernateRepositoryWithTypedId<Address,int> customerAddressRepository)
         {
             this.commandProcessor = commandProcessor;
             this.customerAddressRepository = customerAddressRepository;

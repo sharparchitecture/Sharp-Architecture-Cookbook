@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>SharpArch.Web.Mvc.Castle</id>
+    <version>2.1.2</version>
+    <authors>Sharp Architecture Dev Team</authors>
+    <owners>Sharp Architecture Dev Team</owners>
+    <licenseUrl>https://github.com/sharparchitecture/Sharp-Architecture/blob/master/License.txt</licenseUrl>
+    <projectUrl>http://www.sharparchitecture.net/</projectUrl>
+    <iconUrl>https://github.com/sharparchitecture/Sharp-Architecture/raw/master/Artefacts/Documentation/Logo_100x100.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Provides MVC ModelBinder using Sharp Architecture's IRepository implementation registered with the IoC Container, a Castle Windsor MVC controller factory and Json.Net ActionResult</description>
+    <summary>Architectural foundation for building maintainable applications with Domain Driven Design patterns and practices</summary>
+    <language>en-US</language>
+    <dependencies>
+      <dependency id="Castle.Core" version="[3.2, 4.0)" />
+      <dependency id="Castle.Windsor" version="[3.2, 4.0)" />
+      <dependency id="CommonServiceLocator.WindsorAdapter" version="1.0" />
+      <dependency id="MvcContrib.Mvc3-ci" version="3.0.51.0" />
+      <dependency id="MvcContrib.Mvc3.FluentHtml-ci" version="3.0.51.0" />
+      <dependency id="CommonServiceLocator" version="1.0" />
+      <dependency id="SharpArch.Domain" version="(1.9.6, 3.0.0)" />
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System.Web" targetFramework=".NETFramework4.0" />
+      <frameworkAssembly assemblyName="System.Web.Mvc" targetFramework=".NETFramework4.0" />
+      <frameworkAssembly assemblyName="System.Web.Routing" targetFramework=".NETFramework4.0" />
+      <frameworkAssembly assemblyName="System.ComponentModel.DataAnnotations" targetFramework=".NETFramework4.0" />
+    </frameworkAssemblies>
+  </metadata>
+</package>

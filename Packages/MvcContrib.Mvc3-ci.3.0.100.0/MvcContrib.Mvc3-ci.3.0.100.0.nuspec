@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>MvcContrib.Mvc3-ci</id>
+    <version>3.0.100.0</version>
+    <authors>Outercurve Foundation</authors>
+    <owners>Outercurve Foundation</owners>
+    <licenseUrl>http://mvccontrib.codeplex.com/license</licenseUrl>
+    <projectUrl>http://mvccontrib.codeplex.com/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>MvcContrib was designed to add functionality and ease-of-use to Microsoft's ASP.NET MVC Framework, MVC Contrib is useful for developers looking to develop and test UI elements on top of the ASP.NET MVC framework.</description>
+    <summary>MvcContrib was designed to add functionality and ease-of-use to Microsoft's ASP.NET MVC Framework, MVC Contrib is useful for developers looking to develop and test UI elements on top of the ASP.NET MVC framework.</summary>
+    <tags>mvc</tags>
+    <dependencies>
+      <dependency id="Mvc3Futures" />
+    </dependencies>
+  </metadata>
+</package>

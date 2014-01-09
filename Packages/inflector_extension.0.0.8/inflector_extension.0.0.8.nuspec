@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>inflector_extension</id>
+    <version>0.0.8</version>
+    <authors>Brendan Erwin</authors>
+    <owners>Brendan Erwin</owners>
+    <licenseUrl>https://github.com/littlebits/inflector_extension</licenseUrl>
+    <projectUrl>https://github.com/littlebits/inflector_extension</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Extension Methods for Inflector in C#</description>
+    <tags>littlebits inflector extension inflection pluralize titleize humanize</tags>
+  </metadata>
+</package>
